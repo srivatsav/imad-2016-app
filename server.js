@@ -20,6 +20,7 @@ app.get('/ui/madi.png', function (req, res) {
 app.get('/article-one', function(req, res){
    res.send("Article 1 requested"); 
 });
+
 app.get('/article-two', function(req, res){
    res.send("Article 2 requested"); 
 });
