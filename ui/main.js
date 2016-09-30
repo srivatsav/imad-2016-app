@@ -1,7 +1,7 @@
 
 var button = document.getElementById('counter');
 var counter = 0;
-button.onclick = function clickMeCounter(argument) {
+button.onclick = function () {
 	// body...
 	var request = new XMLHttpRequest();
 	
@@ -12,7 +12,7 @@ button.onclick = function clickMeCounter(argument) {
 	      {
 	          var counter = request.resopnseText;
 	          var span = document.getElementById('num');
-	          span.innerHTML = counter.toString();
+	          span.innerHTML = counter;
 	      }
 	  }
 	};
