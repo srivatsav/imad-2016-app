@@ -2,6 +2,11 @@
 <html>
     <head>
         <link href="/ui/style.css" rel="stylesheet" />
+        <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -10,66 +15,15 @@
             </div>
             <hr/>
             <br>
-            <div class="widget-content">
-<style>
-
-#tab_menu {
-	background:url(http://3.bp.blogspot.com/-OycpSljNY-E/UbidzWvOk4I/AAAAAAAACYs/lGxPWmjfzlA/s1600/menu_bg.png) no-repeat;
-	height:50px;
-	width:1000px;
-	line-height:50px;
-	list-style:none;
-	margin-top:10px;
-	font-size:18px;
-	font-family:Verdana, Geneva, sans-serif;
-	font-weight:bold;
-	overflow: hidden;
-}
-
-#tab_menu li {
-	float:left;
-	border-right:0px solid #FFA722;
-	border-left:1px solid #CC5200;
-}
-
-#tab_menu li:first-child {
-	border-left:none;
-}
-
-#tab_menu li:last-child {
-	border-right:none;
-}
-
-#tab_menu li a{
-	text-decoration:none;
-	float:left;
-	display:block;
-	height:50px;
-	padding:0 20px;
-	color:#FFF;
-}
-
-#tab_menu li a.current, #tab_menu li a:hover, #tab_menu li a.tool:hover {
-	color:#622900;
-	text-shadow:1px 1px 0px #E8964B;
-}
-
-#tab_menu li a.tool{
-	color:#000;
-	text-shadow:1px 1px 0px #E8964B;
-}
-
-</style>
-
-
-<ul id="tab_menu" class="">
-<li><a href="#">Home</a>
-</li>
-<li><a href="#">About Me</a></li>
-<li><a href="#">Posts</a></li>
-
-</ul>
-</div>
+            <div class="container">
+  <h3>Centered Tabs</h3>
+  <ul class="nav nav-tabs nav-justified">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Menu 1</a></li>
+    <li><a href="#">Menu 2</a></li>
+    <li><a href="#">Menu 3</a></li>
+  </ul>
+  </div>
             <hr/>
             <div class="footer">
             This button has been clicked <button id="counter">Click Me.!</button> <span id="num">0</span> number of times.
