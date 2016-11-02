@@ -58,3 +58,11 @@ submit.onclick = function(){
 
   
 };
+
+function getAboutMe()
+{
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://srivatsav.imad.hasura-app.io/about.html',true);
+    request.send(null);
+    
+}
