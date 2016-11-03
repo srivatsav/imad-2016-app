@@ -121,7 +121,7 @@
         </li>
     </ul>
 </div>
-<section class="tab-content hide">
+<section id="tabSection" class="tab-content hide">
     <div id="tabContent"></div>
 </section>
 
@@ -172,6 +172,7 @@
 	      if(tab_selector=='#tab1')
 	      {
 	          alert("TAb1 clicked.!!");
+	          $("#tabSection > tabContent").load("ui/about.html");
 	      }
 	      if(tab_selector=='#tab2')
 	      {
