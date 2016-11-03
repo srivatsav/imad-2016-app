@@ -121,21 +121,10 @@
         </li>
     </ul>
 </div>
-<section id="#tab1" class="tab-content active">
-    <div>
-        Content in tab 1
-    </div>
+<section class="tab-content hide">
+    <div id="tabContent"></div>
 </section>
-<section id="#tab2" class="tab-content hide">
-    <div class="body">
-        
-    </div>
-</section>
-<section id="#tab3" class="tab-content hide">
-    <div>
-        Content in tab 3
-    </div>
-</section>
+
   </div>
             <hr/>
             <div class="footer">
@@ -151,6 +140,8 @@
         </script>
         <script>
         $(document).ready(function() {
+        	var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
+        	loadContent(active_tab_selector);
 		$('.nav-tabs > li > a').click(function(event){
 		event.preventDefault();//stop browser to take action for clicked anchor
 
@@ -172,9 +163,25 @@
 		var target_tab_selector = $(this).attr('href');
 		$(target_tab_selector).removeClass('hide');
 		$(target_tab_selector).addClass('active');
+		loadContent(target_tab_selector);
 	     });
 	     
 	  });
+	  function loadContent(tab_selector)
+	  {
+	      if(tab_selector=='#tab1')
+	      {
+	          
+	      }
+	      if(tab_selector=='#tab2')
+	      {
+	          $("#tabContent").load("ui/about.html");
+	      }
+	      if(tab_selector=='#tab3')
+	      {
+	          
+	      }
+	  }
 	  
 	 
 	  </script>
