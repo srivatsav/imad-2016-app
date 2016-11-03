@@ -172,8 +172,8 @@
 	  {
 	      if(tab_selector=='#tab1')
 	      {
-	          alert("TAb1 clicked.!!");
-	          $("#tabContent").load("ui/about.html");
+	          var tab1Content = '<html> <head></head><body></body></html>';
+	          $("#tabContent").append(tab1Content);
 	      }
 	      if(tab_selector=='#tab2')
 	      {
