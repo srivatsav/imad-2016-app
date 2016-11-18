@@ -99,6 +99,12 @@ app.get('/ui/home.html', function (req, res) {
 app.get('/form.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'form.html'));
 });
+app.get('/form.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'form.css'));
+});
+app.get('/form.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'form.js'));
+});
 
 
 app.get('/ui/madi.png', function (req, res) {
