@@ -1,5 +1,5 @@
 
-var button = document.getElementById('counter');
+/*var button = document.getElementById('counter');
 var counter = 0;
 button.onclick = function () {
 	// body...
@@ -21,7 +21,7 @@ button.onclick = function () {
 	request.send(null);
 	
 	
-};
+};*/
 
 
 var submit = document.getElementById('submit_btn'); 
