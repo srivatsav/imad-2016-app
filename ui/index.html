@@ -123,9 +123,9 @@
 </div>
 
 <section id="contetnt">
-    <div id="tabContent">
-        
-    </div>
+    <div id="tab1Content"> </div>
+    <div id="tab2Content"> </div>
+    <div id="tab3Content"> </div>
 </section>
 
 
@@ -176,12 +176,18 @@
 	  {
 	      if(tab_selector=='#tab1')
 	      {
-	           $("#tabContent").load("ui/home.html");
+	          $("#tab2Content").hide();
+	          $("#tab3Content").hide();
+	          $("#tab1Content").load("ui/home.html");
+	          $("#tab1Content").show();
 	      }
 	      if(tab_selector=='#tab2')
 	      {
-	          $("#tabContent").load("ui/about.html");
+	          $("#tab3Content").hide();
+	          $("#tab1Content").hide();
+	          $("#tab2Content").load("ui/about.html");
 	          alert("TAb2 clicked.!!");
+	          $("#tab2Content").show();
 	      }
 	      if(tab_selector=='#tab3')
 	      {
