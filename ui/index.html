@@ -122,15 +122,19 @@
     </ul>
 </div>
 
-    
+<section id="contetnt">
+    <div id="tabContent">
+        
+    </div>
+</section>
 
 
   </div>
-  <div id="tabContent"></div>
+  <!--<div id="tabContent"></div>
             <hr/>
             <div class="footer">
             This button has been clicked <button id="counter">Click Me.!</button> <span id="num">0</span> number of times.
-        </div>
+        </div>-->
         <hr/>
         <input type="text" id="name" placeholder="name"></input>
         <input type="submit" id="submit_btn" value="Submit"></input>
@@ -172,8 +176,7 @@
 	  {
 	      if(tab_selector=='#tab1')
 	      {
-	          var tab1Content = '<html> <head></head><body>Tab1 content</body></html>';
-	          $("#tabContent").append(tab1Content);
+	           $("#tabContent").innerHTML='<object type="text/html" data="/ui/home.html" ></object>';
 	      }
 	      if(tab_selector=='#tab2')
 	      {
