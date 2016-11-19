@@ -125,10 +125,7 @@
 <section id="contetnt">
     <div id="tab1Content"> </div>
     <div id="tab2Content"> </div>
-    <div id="tab3Content"> 
-        <div id="loginContent"></div>
-        <div id="articleContent"></div>
-    </div>
+    <div id="tab3Content"> </div>
 </section>
 
 
@@ -196,8 +193,7 @@
 	      {
 	           $("#tab1Content").hide();
 	            $("#tab2Content").hide();
-	            $("#tab3Content").children("loginContent").load("/form.html");
-	            $("#tab3Content").children("loginContent").show();
+	            $("#tab3Content").load("/form.html");
 	           $("#tab3Content").show();
 	      }
 	  }
