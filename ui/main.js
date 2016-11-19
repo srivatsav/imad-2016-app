@@ -74,7 +74,8 @@ login.onclick = function(){
 	           var articleReq = new XMLHttpRequest();
 	           articleReq.open('GET','http://srivatsav.imad.hasura-app.io/articles',true);
 	           articleReq.send(null);
-	           
+	           articleReq.onreadystatechange = function ()
+	               {
 	           if(articleReq.readyState === XMLHttpRequest.DONE)
 	              {
             	      if(articleReq.status === 200)
@@ -90,6 +91,7 @@ login.onclick = function(){
                     	          alert('server error');
                     	      }
 	              }
+	               }
 	           
 	      }
 	      else if(request.status === 403)
