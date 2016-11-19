@@ -71,6 +71,43 @@ login.onclick = function(){
 	      if(request.status === 200)
 	      {
 	           alert('Logged in successfully..!!');
+	           var articleReq = new XMLHttpRequest();
+	           articleReq.open('GET','http://srivatsav.imad.hasura-app.io/articles',true);
+	           articleReq.send(null);
+	           
+    	          if(articleReq.readyState === XMLHttpRequest.DONE)
+    	         {
+            	      if(articleReq.status === 200)
+            	      {
+                    	 var htmlTemp = `<html>
+                                                <head>
+                                                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                                                    <title>
+                                                        Articles
+                                                    </title>
+                                                   <link href="/ui/style.css" rel="stylesheet"/>
+                                                    
+                                                </head>
+                                                <body>
+                                                <div class="container">`
+            	          var articleArray = [];
+            	          articleArray = JSON.parse(articleReq.response);
+            	          for(var articleData in articleArray)
+            	          {
+            	             htmlTemp += buildTemplate(articleData);
+            	          }
+            	          htmlTemp += `</div>
+            	                   </body>
+            	                   </html>`
+            	       $("#tab3Content").append(htmlTemp);
+            	       $("#tab3Content").show();
+            	      }
+            	      else
+            	      {
+            	          
+            	      }
+    	         }
+	           
 	      }
 	      else if(request.status === 403)
 	      {
@@ -89,8 +126,26 @@ login.onclick = function(){
 	request.open('POST', 'http://srivatsav.imad.hasura-app.io/login',true);
 	request.setRequestHeader('Content-Type','application/json');
 	request.send(JSON.stringify({username: username,password: password}));
-	
-	
-
   
 };
+
+
+function buildTemplate(data)
+{
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    
+    var htmlTemplate = 
+                `<hr/>
+                <h3>${heading}</h3>
+                <div>${date.toDateString()}</div>
+                <div>
+                    ${content}
+                </div>
+                </br>
+                <hr/>`
+           
+    return htmlTemplate;
+}
