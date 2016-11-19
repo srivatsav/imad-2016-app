@@ -99,8 +99,9 @@ login.onclick = function(){
             	          htmlTemp += `</div>
             	                   </body>
             	                   </html>`
-            	       $("#tab3Content").append(htmlTemp);
-            	       $("#tab3Content").show();
+            	       $("#tab3Content").children("articleContent").append(htmlTemp);
+            	       $("#tab3Content").children("loginContent").hide();
+            	       $("#tab3Content").children("articleContent").show();
             	      }
             	      else
             	      {
