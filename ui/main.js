@@ -75,39 +75,6 @@ login.onclick = function(){
 	           articleReq.open('GET','http://srivatsav.imad.hasura-app.io/articles',true);
 	           articleReq.send(null);
 	           
-    	          if(articleReq.readyState === XMLHttpRequest.DONE)
-    	         {
-            	      if(articleReq.status === 200)
-            	      {
-                    	 var htmlTemp = `<html>
-                                                <head>
-                                                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                                                    <title>
-                                                        Articles
-                                                    </title>
-                                                   <link href="/ui/style.css" rel="stylesheet"/>
-                                                    
-                                                </head>
-                                                <body>
-                                                <div class="container">`
-            	          var articleArray = JSON.parse(articleReq.response);
-            	          for (var i=0;i<articleArray.length;i++)
-            	          {
-            	             htmlTemp += buildTemplate(articleArray[i]);
-            	          }
-            	          htmlTemp += `</div>
-            	                   </body>
-            	                   </html>`
-            	       $("#tab3Content").children("articleContent").append(htmlTemp);
-            	       $("#tab3Content").children("loginContent").hide();
-            	       $("#tab3Content").children("articleContent").show();
-            	      }
-            	      else
-            	      {
-            	          
-            	      }
-    	         }
-	           
 	      }
 	      else if(request.status === 403)
 	      {
@@ -130,22 +97,3 @@ login.onclick = function(){
 };
 
 
-function buildTemplate(data)
-{
-    var title = data.title;
-    var date = data.date;
-    var heading = data.heading;
-    var content = data.content;
-    
-    var htmlTemplate = 
-                `<hr/>
-                <h3>${heading}</h3>
-                <div>${date.toDateString()}</div>
-                <div>
-                    ${content}
-                </div>
-                </br>
-                <hr/>`
-           
-    return htmlTemplate;
-}
