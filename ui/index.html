@@ -119,6 +119,9 @@
         <li>
             <a href="#tab3">Posts</a>
         </li>
+        <li>
+            <a href="#tab4">Login / SignUp.</a>
+        </li>
     </ul>
 </div>
 
@@ -126,6 +129,7 @@
     <div id="tab1Content"> </div>
     <div id="tab2Content"> </div>
     <div id="tab3Content"> </div>
+    <div id="tab4Content"> </div>
 </section>
 
 
@@ -178,6 +182,7 @@
 	      {
 	          $("#tab2Content").hide();
 	          $("#tab3Content").hide();
+	          $("#tab4Content").hide();
 	          $("#tab1Content").load("ui/home.html");
 	          $("#tab1Content").show();
 	      }
@@ -185,6 +190,7 @@
 	      {
 	          $("#tab3Content").hide();
 	          $("#tab1Content").hide();
+	          $("#tab4Content").hide();
 	          $("#tab2Content").load("ui/about.html");
 	          
 	          $("#tab2Content").show();
@@ -193,8 +199,18 @@
 	      {
 	           $("#tab1Content").hide();
 	            $("#tab2Content").hide();
-	            $("#tab3Content").load("/form.html");
+	            $("#tab4Content").hide();
+	           $("#tab3Content").html("<h3>Please Login or Sign up to acces this tab.</h3>");
 	           $("#tab3Content").show();
+	      }
+	      if(tab_selector=='#tab3')
+	      {
+	           $("#tab1Content").hide();
+	            $("#tab2Content").hide();
+	            $("#tab3Content").hide();
+	            $("#tab4Content").show();
+	            $("#tab4Content").load("/form.html");
+	           
 	      }
 	  }
 	  
