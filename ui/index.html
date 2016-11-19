@@ -8,96 +8,15 @@
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           
+   
+          
           <style>
                  #dp{ vertical-align: middle;
                     border-radius: 50%;
                     background-position: center center;
                     background-size: cover;
                     background-color: burlywood;}
-          
-			/** Start: to style navigation tab **/
-			.nav {
-			  margin-bottom: 18px;
-			  margin-left: 0;
-			  list-style: none;
-			}
-
-			.nav > li > a {
-			  display: block;
-			}
-
-			.nav-tabs{
-			  *zoom: 1;
-			}
-
-			.nav-tabs:before,
-			.nav-tabs:after {
-			  display: table;
-			  content: "";
-			}
-
-			.nav-tabs:after {
-			  clear: both;
-			}
-
-			.nav-tabs > li {
-			  float: left;
-			}
-
-			.nav-tabs > li > a {
-			  padding-right: 12px;
-			  padding-left: 12px;
-			  margin-right: 2px;
-			  line-height: 14px;
-			}
-
-			.nav-tabs {
-			  border-bottom: 1px solid #ddd;
-			}
-
-			.nav-tabs > li {
-			  margin-bottom: -1px;
-			}
-
-			.nav-tabs > li > a {
-			  padding-top: 8px;
-			  padding-bottom: 8px;
-			  line-height: 18px;
-			  border: 1px solid transparent;
-			  -webkit-border-radius: 4px 4px 0 0;
-				 -moz-border-radius: 4px 4px 0 0;
-					  border-radius: 4px 4px 0 0;
-			}
-
-			.nav-tabs > li > a:hover {
-			  border-color: #eeeeee #eeeeee #dddddd;
-			}
-
-			.nav-tabs > .active > a,
-			.nav-tabs > .active > a:hover {
-			  color: #555555;
-			  cursor: default;
-			  background-color: #ffffff;
-			  border: 1px solid #ddd;
-			  border-bottom-color: transparent;
-			}
-
-			li {
-			  line-height: 18px;
-			}
-
-			.tab-content.active{
-				display: block;
-			}
-
-			.tab-content.hide{
-				display: none;
-			}
-
-
-			/** End: to style navigation tab **/
-		</style>
-
+            </style>
     </head>
     <body>
         <div class="container">
@@ -107,8 +26,8 @@
             </div>
             <hr/>
             <br>
-            <div class="container">
-  <div>
+            
+  
     <ul class="nav nav-tabs nav-justified">
         <li class="active">
             <a data-toggle="tab"  href="#tab1">Home</a>
@@ -123,10 +42,10 @@
             <a data-toggle="tab"  href="#tab4">Login / SignUp.</a>
         </li>
     </ul>
-</div>
+
 
 <div class="tab-content">
-    <div id="tab1Content" class="tab-pane fade"> </div>
+    <div id="tab1Content" class="tab-pane fade in active"> </div>
     <div id="tab2Content" class="tab-pane fade"> </div>
     <div id="tab3Content" class="tab-pane fade"> </div>
     <div id="tab4Content" class="tab-pane fade"> </div>
@@ -144,11 +63,11 @@
         <input type="text" id="name" placeholder="name"></input>
         <input type="submit" id="submit_btn" value="Submit"></input>
         <ul id = "nameList"></ul>-->
-        </div>
+        
         
             <script type="text/javascript" src="/ui/main.js">
         </script>
-        <script>
+        <script type="text/javascript">
         /*$(document).ready(function() {
         	var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
         	loadContent(active_tab_selector);
@@ -178,9 +97,9 @@
 	     
 	  });*/
 	  $(document).ready(function() {
-	      $("#tab1Content").html("<h2> Home..!! </h2>");
-	       $("#tab2Content").html("<h2> About..!! </h2>");
-	       $("#tab3Content").html("<h2> Login or signUp to view this tab..! </h2>");
+	      $("#tab1Content").innerHTML = "<h2> Home..!! </h2>";
+	       $("#tab2Content").innerHTML = "<h2> About..!! </h2>";
+	       $("#tab3Content").innerHTML = "<h2> Login or signUp to view this tab..! </h2>";
 	       $("#tab4Content").load("/form.html");
 	  });
 	 /* function loadContent(tab_selector)
