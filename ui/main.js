@@ -77,7 +77,7 @@ login.onclick = function(){
 	           
     	          if(articleReq.readyState === XMLHttpRequest.DONE)
     	         {
-            	      if(articleReq.status === 200 || articleReq.status === 304)
+            	      if(articleReq.status === 200)
             	      {
                     	 var htmlTemp = `<html>
                                                 <head>
@@ -90,11 +90,10 @@ login.onclick = function(){
                                                 </head>
                                                 <body>
                                                 <div class="container">`
-            	          var articleArray = [];
-            	          articleArray = JSON.parse(articleReq.response);
-            	          for(var articleData in articleArray)
+            	          var articleArray = JSON.parse(articleReq.response);
+            	          for (var i=0;i<articleArray.length;i++)
             	          {
-            	             htmlTemp += buildTemplate(articleData);
+            	             htmlTemp += buildTemplate(articleArray[i]);
             	          }
             	          htmlTemp += `</div>
             	                   </body>
