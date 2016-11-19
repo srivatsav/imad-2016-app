@@ -77,7 +77,7 @@ login.onclick = function(){
 	           
     	          if(articleReq.readyState === XMLHttpRequest.DONE)
     	         {
-            	      if(articleReq.status === 200)
+            	      if(articleReq.status === 200 || articleReq.status === 304)
             	      {
                     	 var htmlTemp = `<html>
                                                 <head>
