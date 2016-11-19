@@ -102,6 +102,11 @@
 	       $("#tab3Content").innerHTML = "<h2> Login or signUp to view this tab..! </h2>";
 	       $("#tab4Content").load("/form.html");
 	  });
+		$(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+    });
+});
 	 /* function loadContent(tab_selector)
 	  {
 	      if(tab_selector=='#tab1')
