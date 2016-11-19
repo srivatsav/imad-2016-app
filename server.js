@@ -214,7 +214,7 @@ app.get('/articles',function(req, res){
            }
            else
            {
-              res.send(result.rows);
+              res.send(result);
            }
        }
    });
