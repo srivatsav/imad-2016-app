@@ -82,6 +82,7 @@ login.onclick = function(){
             	      {
             	          console.log(articleReq.responseText);
             	          $("#login").hide();
+            	          $("#register").hide();
             	          $("#tab3Content").html(articleReq.responseText);
             	          $("#tab3Content").show();
             	      }
