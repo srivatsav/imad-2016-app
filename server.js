@@ -1,7 +1,8 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pg').Pool
+var Pool = require('pg').Pool;
+var bodyParser = require('body-parser');
 var config = {
     user: 'srivatsav',
     databse: 'srivatsav',
@@ -11,6 +12,7 @@ var config = {
 };
 var app = express();
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 var crypto = require('crypto');
 
 function buildTemplate(data)
@@ -60,6 +62,65 @@ app.get('/test-db',function(req,res){
     });
 });
 
+app.post('/create-user',function(req, res){
+    
+   var username = req.body.username;
+   var password = req.body.password;
+   
+   var salt = crypto.randomBytes(128).toString('hex');
+   var dbString = hash(password,salt); 
+   pool.query('INSERT into "user" (username,password) VALUES ($1, $2)',[username,dbString],function(err, result){
+      
+      if(err)
+      {
+          res.status(500).send(err.toString());
+      }
+      else
+      {
+          res.send('User'+ username+' successfully created.');
+      }
+   });
+});
+
+app.post('/login',function(req, res){
+    
+   var username = req.body.username;
+   var password = req.body.password;
+   
+   pool.query('SELECT * FROM "user" WHERE username = $1',[username],function(err, result){
+      
+      if(err)
+      {
+          res.status(500).send(err.toString());
+      }
+      else
+      {
+          if(result.rows.length===0)
+          {
+              res.send(403).send("Invalid Username/Password");
+          }
+          else
+          {
+              var dbString = result.rows[0].password;
+              var salt = dbString.split('$')[2];
+              var hashedPassword = hash(password,salt);
+              if(hashedPassword===dbString)
+              {
+                res.send('valid credentials.!');    
+                
+                //set a session
+              }
+              else
+              {
+                res.send(403).send("Invalid Username/Password");    
+              }
+              
+          }
+      }
+   });
+});
+
+
 var counter = 0;
 app.get('/counter',function(req, res){
    counter = counter+1;
@@ -77,8 +138,8 @@ app.get('/ui/style.css', function (req, res) {
 //using crypto library foor hashing..
 function hash(input,salt)
 {
-    var hashedString = crypto.pbkdf2Sync(input,salt,10000,512,'sha512'); 
-    return hashedString.toString('hex');
+    var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512'); 
+    return ['pbkdf2',"10000",salt,hashed.toString('hex')].join('$');
 }
 app.get('/hash/:input',function(req, res){
     
