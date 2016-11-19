@@ -1,149 +1,44 @@
-<!doctype html>
-<html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-        <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-          
-   
-          
-          <style>
-                 #dp{ vertical-align: middle;
-                    border-radius: 50%;
-                    background-position: center center;
-                    background-size: cover;
-                    background-color: burlywood;}
-                      /** Start: to style navigation tab **/
-       
-  /** End: to style navigation tab **/
-            </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="center">
-                
-                <img id="dp" src="/ui/madi.png"/>
-            </div>
-            <hr/>
-            <br>
-            
-  
-    <ul class="nav nav-tabs nav-justified">
-        <li class="active">
-            <a data-toggle="tab"  href="#tab1">Home</a>
-        </li>
-        <li>
-            <a data-toggle="tab"  href="#tab2">About Me</a>
-        </li>
-        <li>
-            <a data-toggle="tab"  href="#tab3">Posts</a>
-        </li>
-        <li>
-            <a data-toggle="tab"  href="#tab4">Login / SignUp.</a>
-        </li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+<script src="/ui/main.js"></script>
+<style type="text/css">
+	.bs-example{
+		margin: 20px;
+	}
+</style>
+</head>
+<body>
+<div class="bs-example">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#sectionA">Section A</a></li>
+        <li><a data-toggle="tab" href="#sectionB">Section B</a></li>
+        <li><a data-toggle="tab" href="#sectionC">Section B</a></li>
+        <li><a data-toggle="tab" href="#sectionD">Section B</a></li>
+        
     </ul>
-
-
-<div class="tab-content">
-    <div id="tab1Content" class="tab-pane fade in active"> </div>
-    <div id="tab2Content" class="tab-pane fade"> </div>
-    <div id="tab3Content" class="tab-pane fade"> </div>
-    <div id="tab4Content" class="tab-pane fade"> </div>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+            <h3>Section A</h3>
+            
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+            
+        </div>
+           
 </div>
-
-
 </div>
-  
-  <!--<div id="tabContent"></div>
-            <hr/>
-            <div class="footer">
-            This button has been clicked <button id="counter">Click Me.!</button> <span id="num">0</span> number of times.
-        </div>-->
-       <!-- <hr/>
-        <input type="text" id="name" placeholder="name"></input>
-        <input type="submit" id="submit_btn" value="Submit"></input>
-        <ul id = "nameList"></ul>-->
-        
-        
-            <script type="text/javascript" src="/ui/main.js">
-        </script>
-        <script type="text/javascript">
-        /*$(document).ready(function() {
-        	var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
-        	loadContent(active_tab_selector);
-		$('.nav-tabs > li > a').click(function(event){
-		event.preventDefault();//stop browser to take action for clicked anchor
-
-		//get displaying tab content jQuery selector
-		var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
-
-		//find actived navigation and remove 'active' css
-		var actived_nav = $('.nav-tabs > li.active');
-		actived_nav.removeClass('active');
-
-		//add 'active' css into clicked navigation
-		$(this).parents('li').addClass('active');
-
-		//hide displaying tab content
-		$(active_tab_selector).removeClass('active');
-		$(active_tab_selector).addClass('hide');
-
-		//show target tab content
-		var target_tab_selector = $(this).attr('href');
-		$(target_tab_selector).removeClass('hide');
-		$(target_tab_selector).addClass('active');
-		loadContent(target_tab_selector);
-	     });
-	     
-	  });
-	 
-	  function loadContent(tab_selector)
-	  {
-	      if(tab_selector=='#tab1')
-	      {
-	          $("#tab2Content").hide();
-	          $("#tab3Content").hide();
-	          $("#tab4Content").hide();
-	          $("#tab1Content").load("ui/home.html");
-	          $("#tab1Content").show();
-	      }
-	      if(tab_selector=='#tab2')
-	      {
-	          $("#tab3Content").hide();
-	          $("#tab1Content").hide();
-	          $("#tab4Content").hide();
-	          $("#tab2Content").load("ui/about.html");
-	          
-	          $("#tab2Content").show();
-	      }
-	      if(tab_selector=='#tab3')
-	      {
-	           $("#tab1Content").hide();
-	            $("#tab2Content").hide();
-	            $("#tab4Content").hide();
-	           $("#tab3Content").html("<h3>Please Login or Sign up to acces this tab.</h3>");
-	           $("#tab3Content").show();
-	      }
-	      if(tab_selector=='#tab4')
-	      {
-	           $("#tab1Content").hide();
-	            $("#tab2Content").hide();
-	            $("#tab3Content").hide();
-	            $("#tab4Content").show();
-	            $("#tab4Content").load("/form.html");
-	           
-	      }
-	  }*/
-	  $("#tab1Content").html("<h2>Home..!</h2>");
-	  $("#tab2Content").html("<h2>Home..!</h2>");
-	  $("#tab3Content").html("<h2>Home..!</h2>");
-	  
-	 
-	  </script>
-
-        
-    </body>
-</html>
+    <script>
+       
+        $("#sectionB").html("<h2>vfvs</h2>");
+    </script>
+</body>
+</html>                                		
