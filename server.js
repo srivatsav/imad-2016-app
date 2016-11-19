@@ -214,16 +214,59 @@ app.get('/articles',function(req, res){
            }
            else
            {
-              res.send(result);
+               var articleArray = result.rows;
+               var htmlTemp = `<html>
+                                                <head>
+                                                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                                                    <title>
+                                                        Articles
+                                                    </title>
+                                                   <link href="/ui/style.css" rel="stylesheet"/>
+                                                    
+                                                </head>
+                                                <body>
+                                                <div class="container">`
+            	          
+            	          for (var i=0;i<articleArray.length;i++)
+            	          {
+            	             htmlTemp += buildArticleTemplate(articleArray[i]);
+            	          }
+            	          htmlTemp += `</div>
+            	                   </body>
+            	                   </html>`
+            	                   
+            	       console.log(htmlTemp);
+            	      res.send(htmlTemp);
+            	      
+            	      }
+            	      
            }
-       }
+       
    });
 });
 app.get('/ui/main.js', function (req, res) {
    res.sendFile (path.join(__dirname, 'ui', 'main.js'));
 });
 
-
+function buildArticleTemplate(data)
+{
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    
+    var htmlTemplate = 
+                `<hr/>
+                <h3>${heading}</h3>
+                <div>${date.toDateString()}</div>
+                <div>
+                    ${content}
+                </div>
+                </br>
+                <hr/>`
+           
+    return htmlTemplate;
+}
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
