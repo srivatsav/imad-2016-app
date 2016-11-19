@@ -193,12 +193,31 @@ app.get('/articles/:aName', function(req, res){
             }
             else
             {
-                var articleData = result.rows[0];
-                res.send(buildTemplate(articleData));
+                res.send(result.rows);
             }
         }
     });
    
+});
+
+app.get('/articles',function(req, res){
+   
+   pool.query('SELECT * FROM "article"',function(err, result){
+       if(err){
+           res.status(500).send(err.toString());
+       }
+       else
+       {
+           if(result.rows.length ===0)
+           {
+               res.send('No articles Found..! Create one');
+           }
+           else
+           {
+              res.send(JSON.stringify(result.rows));
+           }
+       }
+   }) 
 });
 app.get('/ui/main.js', function (req, res) {
    res.sendFile (path.join(__dirname, 'ui', 'main.js'));
