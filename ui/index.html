@@ -103,6 +103,9 @@
         <li>
             <a href="#tab3">Posts</a>
         </li>
+        <li>
+            <a href="#tab4">Login/Sign Up.</a>
+        </li>
     </ul>
 </div>
 
@@ -110,6 +113,7 @@
     <div id="tab1Content"> </div>
     <div id="tab2Content"> </div>
     <div id="tab3Content"> </div>
+    <div id="tab4Content"> </div>
 </section>
 
 
@@ -119,10 +123,10 @@
             <div class="footer">
             This button has been clicked <button id="counter">Click Me.!</button> <span id="num">0</span> number of times.
         </div>-->
-        <hr/>
+        <!--<hr/>
         <input type="text" id="name" placeholder="name"></input>
         <input type="submit" id="submit_btn" value="Submit"></input>
-        <ul id = "nameList"></ul>
+        <ul id = "nameList"></ul>-->
         </div>
         
             <script type="text/javascript" src="/ui/main.js">
@@ -160,17 +164,26 @@
 	          $("#tab1Content").load("ui/home.html");
 	          $("#tab1Content").show();
 	      }
-	      if(tab_selector=='#tab2')
+	     else if(tab_selector=='#tab2')
 	      {
 	          $("#tab3Content").hide();
 	          $("#tab1Content").hide();
 	          $("#tab2Content").load("ui/about.html");
-	          alert("TAb2 clicked.!!");
 	          $("#tab2Content").show();
 	      }
-	      if(tab_selector=='#tab3')
+	      else if(tab_selector=='#tab3')
 	      {
-	          alert("TAb3 clicked.!!");
+	          $("#tab1Content").hide();
+	          $("#tab2Content").hide();
+	          $("#tab4Content").hide();
+	          $("#tab3Content").html("<h3>*Please login or sign u to view this tab.</h3>");
+	      }
+	      else if(tab_selector=='#tab4')
+	      {
+	          $("#tab1Content").hide();
+	          $("#tab2Content").hide();
+	          $("#tab3Content").hide();
+	          $("#tab4Content").load("/form.html");
 	      }
 	  }
 	  
