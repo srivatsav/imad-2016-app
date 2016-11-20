@@ -224,7 +224,7 @@ function buildArticleTemplate(data)
                 <div>
                     ${content}
                 </div>
-                </br><button class = "btn btn-primary" href="javascript:void(0)" id="cmnt_btn">Comment</button>
+                </br><button class = "btn" href="javascript:void(0)" id="cmnt_btn">Comment</button>
                 </br>
                 <hr/>`;
            
