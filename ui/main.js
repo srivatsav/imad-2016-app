@@ -71,31 +71,7 @@ login.onclick = function(){
 	      if(request.status === 200)
 	      {
 	           alert('Logged in successfully..!!');
-	           var articleReq = new XMLHttpRequest();
-	           articleReq.open('GET','http://srivatsav.imad.hasura-app.io/articles',true);
-	           articleReq.send(null);
-	           articleReq.onreadystatechange = function ()
-	               {
-	           if(articleReq.readyState === XMLHttpRequest.DONE)
-	              {
-            	      if(articleReq.status === 200)
-            	      {
-            	          console.log(articleReq.responseText);
-            	          $("#login").hide();
-            	          $("#register").hide();
-            	          $("#tab3Content").append(articleReq.responseText);
-            	          $("#tab3Content").show();
-            	      }
-            	        else if(request.status === 403)
-                	      {
-                	          alert('Username/password is incorrect');
-                	      }
-                	         else if(request.status === 500)
-                    	      {
-                    	          alert('server error');
-                    	      }
-	              }
-	               }
+	           
 	           
 	      }
 	      else if(request.status === 403)
