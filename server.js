@@ -190,23 +190,12 @@ app.get('/articles',function(req, res){
            else
            {
                var articleArray = result.rows;
-               var htmlTemp = `<html>
-                                                <head>
-                                                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                                                    <title>
-                                                        Articles
-                                                    </title>
-                                                </head>
-                                                <body>
-                                                <div class="container">`
+               var htmlTemp ;
             	          
             	          for (var i=0;i<articleArray.length;i++)
             	          {
             	             htmlTemp += buildArticleTemplate(articleArray[i]);
             	          }
-            	          htmlTemp += `</div>
-            	                   </body>
-            	                   </html>`
             	                   
             	       console.log(htmlTemp);
             	      res.send(htmlTemp);
