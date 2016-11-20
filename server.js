@@ -218,12 +218,13 @@ function buildArticleTemplate(data)
     var content = data.content;
     
     var htmlTemplate = 
-                `<hr/>
+               `<hr/>
                 <h3>${heading}</h3>
                 <div>${date.toDateString()}</div>
                 <div>
                     ${content}
                 </div>
+                </br><button class = "btn btn-primary" href="javascript:void(0)" id="cmnt_btn">Comment</button>
                 </br>
                 <hr/>`;
            
