@@ -16,7 +16,9 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(session({
     secret: 'randomSecretValue',
-    cookie: {maxAge: 1000*60*60*24*30}
+    cookie: {maxAge: 1000*60*60*24*30},
+    resave: true,
+    saveUninitialized: true
 }));
 var crypto = require('crypto');
 var pool = new Pool(config);
