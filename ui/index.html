@@ -133,7 +133,7 @@
         </script>
         <script>
         var articleRespText;
-        $(document).ready(function() {
+        window.onload = function() {
             
         	var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
         	loadContent(active_tab_selector);
@@ -175,7 +175,8 @@
 		loadContent(target_tab_selector);
 	     });
 	     
-	  });
+	  };
+		window.onunload = function(){}; 
 	  function loadContent(tab_selector)
 	  {
 	      if(tab_selector=='#tab1')
