@@ -14,7 +14,7 @@ var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 var crypto = require('crypto');
-
+var pool = new Pool(config);
 function buildTemplate(data)
 {
     var title = data.title;
