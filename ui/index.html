@@ -1,57 +1,207 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html>
+    <head>
+        <link href="/ui/style.css" rel="stylesheet" />
+        <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          
+          <style>
+                 #dp{ vertical-align: middle;
+                    border-radius: 50%;
+                    background-position: center center;
+                    background-size: cover;
+                    background-color: burlywood;}
+          
+			/** Start: to style navigation tab **/
+			.nav {
+			  margin-bottom: 18px;
+			  margin-left: 0;
+			  list-style: none;
+			}
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-<script src="/ui/main.js"></script>
-<style type="text/css">
-            	.bs-example{
-            		margin: 20px;
-            	}
-    	        #dp{ vertical-align: middle;
-                        border-radius: 50%;
-                        background-position: center center;
-                        background-size: cover;
-                        background-color: burlywood;}
-</style>
-</head>
-<body>
-	<div class="container">
+			.nav > li > a {
+			  display: block;
+			}
+
+			.nav-tabs{
+			  *zoom: 1;
+			}
+
+			.nav-tabs:before,
+			.nav-tabs:after {
+			  display: table;
+			  content: "";
+			}
+
+			.nav-tabs:after {
+			  clear: both;
+			}
+
+			.nav-tabs > li {
+			  float: left;
+			}
+
+			.nav-tabs > li > a {
+			  padding-right: 12px;
+			  padding-left: 12px;
+			  margin-right: 2px;
+			  line-height: 14px;
+			}
+
+			.nav-tabs {
+			  border-bottom: 1px solid #ddd;
+			}
+
+			.nav-tabs > li {
+			  margin-bottom: -1px;
+			}
+
+			.nav-tabs > li > a {
+			  padding-top: 8px;
+			  padding-bottom: 8px;
+			  line-height: 18px;
+			  border: 1px solid transparent;
+			  -webkit-border-radius: 4px 4px 0 0;
+				 -moz-border-radius: 4px 4px 0 0;
+					  border-radius: 4px 4px 0 0;
+			}
+
+			.nav-tabs > li > a:hover {
+			  border-color: #eeeeee #eeeeee #dddddd;
+			}
+
+			.nav-tabs > .active > a,
+			.nav-tabs > .active > a:hover {
+			  color: #555555;
+			  cursor: default;
+			  background-color: #ffffff;
+			  border: 1px solid #ddd;
+			  border-bottom-color: transparent;
+			}
+
+			li {
+			  line-height: 18px;
+			}
+
+			.tab-content.active{
+				display: block;
+			}
+
+			.tab-content.hide{
+				display: none;
+			}
+
+
+			/** End: to style navigation tab **/
+		</style>
+
+    </head>
+    <body>
+        <div class="container">
             <div class="center">
                 
                 <img id="dp" src="/ui/madi.png"/>
             </div>
             <hr/>
             <br>
-<div class="bs-example">
+            <div class="container">
+  <div>
     <ul class="nav nav-tabs nav-justified">
-        <li class="active"><a data-toggle="tab" href="#sectionA">Section A</a></li>
-        <li><a data-toggle="tab" href="#sectionB">Section B</a></li>
-        <li><a data-toggle="tab" href="#sectionC">Section B</a></li>
-        <li><a data-toggle="tab" href="#sectionD">Section B</a></li>
-        
+        <li class="active">
+            <a href="#tab1">Home</a>
+        </li>
+        <li>
+            <a href="#tab2">About Me</a>
+        </li>
+        <li>
+            <a href="#tab3">Posts</a>
+        </li>
     </ul>
-    <div class="tab-content">
-        <div id="sectionA" class="tab-pane fade in active">
-            <h3>Section A</h3>
-            
-        </div>
-        <div id="sectionB" class="tab-pane fade">
-            
-        </div>
-           
 </div>
-</div>
-		</div>
-    <script>
-       
-        $("#sectionB").html("<h2>vfvs</h2>");
-    </script>
-</body>
-</html>                                		
+
+<section id="contetnt">
+    <div id="tab1Content"> </div>
+    <div id="tab2Content"> </div>
+    <div id="tab3Content"> </div>
+</section>
+
+
+  </div>
+  <!--<div id="tabContent"></div>
+            <hr/>
+            <div class="footer">
+            This button has been clicked <button id="counter">Click Me.!</button> <span id="num">0</span> number of times.
+        </div>-->
+        <hr/>
+        <input type="text" id="name" placeholder="name"></input>
+        <input type="submit" id="submit_btn" value="Submit"></input>
+        <ul id = "nameList"></ul>
+        </div>
+        
+            <script type="text/javascript" src="/ui/main.js">
+        </script>
+        <script>
+        $(document).ready(function() {
+        	var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
+        	loadContent(active_tab_selector);
+		$('.nav-tabs > li > a').click(function(event){
+		event.preventDefault();//stop browser to take action for clicked anchor
+
+		//get displaying tab content jQuery selector
+		var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
+
+		//find actived navigation and remove 'active' css
+		var actived_nav = $('.nav-tabs > li.active');
+		actived_nav.removeClass('active');
+
+		//add 'active' css into clicked navigation
+		$(this).parents('li').addClass('active');
+
+		//hide displaying tab content
+		$(active_tab_selector).removeClass('active');
+		$(active_tab_selector).addClass('hide');
+
+		//show target tab content
+		var target_tab_selector = $(this).attr('href');
+		$(target_tab_selector).removeClass('hide');
+		$(target_tab_selector).addClass('active');
+		loadContent(target_tab_selector);
+	     });
+	     
+	  });
+	  function loadContent(tab_selector)
+	  {
+	      if(tab_selector=='#tab1')
+	      {
+	          $("#tab2Content").hide();
+	          $("#tab3Content").hide();
+	          $("#tab1Content").load("ui/home.html");
+	          $("#tab1Content").show();
+	      }
+	      if(tab_selector=='#tab2')
+	      {
+	          $("#tab3Content").hide();
+	          $("#tab1Content").hide();
+	          $("#tab2Content").load("ui/about.html");
+	          alert("TAb2 clicked.!!");
+	          $("#tab2Content").show();
+	      }
+	      if(tab_selector=='#tab3')
+	      {
+	           $("#tab1Content").hide();
+	            $("#tab2Content").hide();
+	            $("#tab3Content").load("/form.html");
+	          alert("TAb3 clicked.!!");
+	           $("#tab3Content").show();
+	      }
+	  }
+	  
+	 
+	  </script>
+
+        
+    </body>
+</html>
