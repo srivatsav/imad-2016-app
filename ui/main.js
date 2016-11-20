@@ -88,24 +88,23 @@ login.onclick = function(){
 	      }
 	  }
 	};
-	var username = document.getElementById('usernamesignup').value;
-	var password = document.getElementById('passwordsignup').value;
-	var email = document.getElementById('emailsignup').value;
+	var username = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
+	
     
-	request.open('POST', 'http://srivatsav.imad.hasura-app.io/create-user',true);
+	request.open('POST', 'http://srivatsav.imad.hasura-app.io/login',true);
 	request.setRequestHeader('Content-Type','application/json');
-	request.send(JSON.stringify({username: username,password: password,email: email}));
+	request.send(JSON.stringify({username: username,password: password}));
   
 };
 
 var register = document.getElementById('register_btn');
 register.onclick= function(){
     var request = new XMLHttpRequest();
-    var username = document.getElementById('username').value;
-	var password = document.getElementById('password').value;
-    console.log(username);
-    console.log(password);
-	request.open('POST', 'http://srivatsav.imad.hasura-app.io/login',true);
+    var username = document.getElementById('usernamesignup').value;
+	var password = document.getElementById('passwordsignup').value;
+    
+	request.open('POST', 'http://srivatsav.imad.hasura-app.io/create-user',true);
 	request.setRequestHeader('Content-Type','application/json');
 	request.send(JSON.stringify({username: username,password: password}));
 	
