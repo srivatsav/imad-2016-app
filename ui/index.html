@@ -111,30 +111,24 @@
   <div>
     <ul class="nav nav-tabs nav-justified">
         <li class="active">
-            <a data-toggle="tab"  href="#tab1">Home</a>
+            <a href="#tab1">Home</a>
         </li>
         <li>
-            <a data-toggle="tab"  href="#tab2">About Me</a>
+            <a href="#tab2">About Me</a>
         </li>
         <li>
-            <a data-toggle="tab"  href="#tab3">Posts</a>
-        </li>
-        <li>
-            <a data-toggle="tab"  href="#tab4">Login / SignUp.</a>
+            <a href="#tab3">Posts</a>
         </li>
     </ul>
 </div>
 
-<div class="tab-content">
-    <div id="tab1Content" class="tab-pane fade"> </div>
-    <div id="tab2Content" class="tab-pane fade"> </div>
-    <div id="tab3Content" class="tab-pane fade"> </div>
-    <div id="tab4Content" class="tab-pane fade"> </div>
-</div>
+<section id="contetnt">
+    <div id="tab1Content"> </div>
+    <div id="tab2Content"> </div>
+    <div id="tab3Content"> </div>
+</section>
 
 
-
-  </div>
   </div>
   <!--<div id="tabContent"></div>
             <hr/>
@@ -144,8 +138,8 @@
        <!-- <hr/>
         <input type="text" id="name" placeholder="name"></input>
         <input type="submit" id="submit_btn" value="Submit"></input>
-        <ul id = "nameList"></ul>
-        </div>-->
+        <ul id = "nameList"></ul>-->
+        </div>
         
             <script type="text/javascript" src="/ui/main.js">
         </script>
@@ -184,7 +178,6 @@
 	      {
 	          $("#tab2Content").hide();
 	          $("#tab3Content").hide();
-	          $("#tab4Content").hide();
 	          $("#tab1Content").load("ui/home.html");
 	          $("#tab1Content").show();
 	      }
@@ -192,7 +185,6 @@
 	      {
 	          $("#tab3Content").hide();
 	          $("#tab1Content").hide();
-	          $("#tab4Content").hide();
 	          $("#tab2Content").load("ui/about.html");
 	          
 	          $("#tab2Content").show();
@@ -201,18 +193,9 @@
 	      {
 	           $("#tab1Content").hide();
 	            $("#tab2Content").hide();
-	            $("#tab4Content").hide();
-	           $("#tab3Content").html("<h3>Please Login or Sign up to acces this tab.</h3>");
+	            $("#tab3Content").load("/form.html");
+	          
 	           $("#tab3Content").show();
-	      }
-	      if(tab_selector=='#tab4')
-	      {
-	           $("#tab1Content").hide();
-	            $("#tab2Content").hide();
-	            $("#tab3Content").hide();
-	            $("#tab4Content").show();
-	            $("#tab4Content").load("/form.html");
-	           
 	      }
 	  }
 	  
