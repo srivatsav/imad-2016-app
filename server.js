@@ -236,7 +236,7 @@ function buildArticleTemplate(data)
                     ${content}
                 </div>
                 </br>
-                <hr/>`
+                <hr/>`;
            
     return htmlTemplate;
 }
