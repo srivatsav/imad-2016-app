@@ -24,7 +24,7 @@ button.onclick = function () {
 };*/
 
 
-var submit = document.getElementById('submit_btn'); 
+/*var submit = document.getElementById('submit_btn'); 
 submit.onclick = function(){
     
     
@@ -58,7 +58,7 @@ submit.onclick = function(){
 
   
 };
-
+*/
 var login = document.getElementById('login_btn'); 
 login.onclick = function(){
     
