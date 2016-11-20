@@ -1,0 +1,106 @@
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Article
+	</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>         
+          <script type="text/javascript" src="/ui/comment.js"></script>
+          <script type="text/javascript">
+          	$(document).ready(function(){
+          		var x = window.location.href.split('/')
+          		var id =x[x.length-1];          		
+          		var request = new XMLHttpRequest();
+              request.open('GET', 'http://srivatsav.imad.hasura-app.io/articles/'+id,true);
+	            request.send(null);
+              request.onreadystatechange = function (){
+                    if(request.readyState === XMLHttpRequest.DONE)
+                    {
+                        if(request.status === 200)
+                        {
+                          var post = request.responseText;
+                          $("ithArticle").html(post);
+                          $("ithArticle").show();
+                        }
+                        else
+                        {
+                          alert("Internal server");
+                        }
+                    }
+                 }
+          		
+				          	});
+          </script>
+
+     <style type="text/css">    
+
+
+
+.status-upload form textarea {
+background: none repeat scroll 0 0 #fff;
+border: medium none;
+-webkit-border-radius: 4px 4px 0 0;
+-moz-border-radius: 4px 4px 0 0;
+-ms-border-radius: 4px 4px 0 0;
+-o-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+color: #777777;
+float: left;
+font-family: Lato;
+font-size: 14px;
+height: 142px;
+letter-spacing: 0.3px;
+padding: 20px;
+width: 100%;
+resize:vertical;
+outline:none;
+border: 1px solid #000000;
+}
+.status-upload form button {
+border: medium none;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+color: #fff;
+float: right;
+font-family: Lato;
+font-size: 14px;
+letter-spacing: 0.3px;
+margin-right: 9px;
+margin-top: 9px;
+padding: 6px 15px;
+}
+     </style>
+
+</head>
+<body>
+	<div class="container">
+		<div id="ithArticle">
+	</div>
+		
+<div class="container">
+    
+    <div class="row">
+    
+    <div class="col-md-6">
+    						<div class="widget-area no-padding blank">
+								<div class="status-upload">
+									<form>
+										<textarea placeholder="" ></textarea>
+										
+										<button type="submit" class="btn btn-primary"> Comment</button>
+									</form>
+								</div><!-- Status Upload  -->
+							</div><!-- Widget Area -->
+						</div>
+        
+    </div>
+</div>    
+</div>   	                   
+	</body>
+</html>
