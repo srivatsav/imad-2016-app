@@ -209,9 +209,13 @@ app.get('/articles',function(req, res){
 app.get('/ui/main.js', function (req, res) {
    res.sendFile (path.join(__dirname, 'ui', 'main.js'));
 });
+app.get('/comment.js',function(req, res) {
+    res.sendFile (path.join(__dirname,'ui','comment.js'));
+});
 
 function buildArticleTemplate(data)
 {
+    var id = data.id;
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
@@ -224,7 +228,7 @@ function buildArticleTemplate(data)
                 <div>
                     ${content}
                 </div>
-                </br><button class = "btn" href="javascript:void(0)" id="cmnt_btn">Comment</button>
+                </br><button class = "btn" href="javascript:void(0)" onclick="commentHandler(${id})" id="cmnt_btn">Comment</button>
                 </br>
                 <hr/>`;
            
