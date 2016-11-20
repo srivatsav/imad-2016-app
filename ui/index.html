@@ -132,8 +132,9 @@
             <script type="text/javascript" src="/ui/main.js">
         </script>
         <script>
+        var articleRespText;
         $(document).ready(function() {
-            var articleRespText;
+            
         	var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
         	loadContent(active_tab_selector);
 		$('.nav-tabs > li > a').click(function(event){
