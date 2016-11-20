@@ -72,9 +72,10 @@ login.onclick = function(){
 	      {
 	           alert('Logged in successfully..!!');
 	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>");
-    	       $("login").hide();
-    	       $("register").hide();
+    	      $("wrapper").hide();
+		$("wrapper").style.display="none";
     	       $("sessionName").show();
+		      $("sessionName").style.display="block";
 	           
 	           
 	      }
@@ -116,9 +117,10 @@ register.onclick= function(){
 	          request.session.auth = {userId: username};
 	            alert('Registered successfully..!!');
 	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userId);
-    	       $("login").hide();
-    	       $("register").hide();
+    	       $("wrapper").hide();
+		$("wrapper").style.display="none";
     	       $("sessionName").show();
+		      $("sessionName").style.display="block";
 	      }
 	  }
 	}
