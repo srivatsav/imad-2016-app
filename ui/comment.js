@@ -7,6 +7,6 @@ commentButton.onclick(function(){
 
 function commentHandler(id)
 {
-	alert("commentButton "+id+" clicked..!");	 
+	window.location.href = '/post/'+id; 
 }
 
