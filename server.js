@@ -196,8 +196,6 @@ app.get('/articles',function(req, res){
                                                     <title>
                                                         Articles
                                                     </title>
-                                                   <link href="/ui/style.css" rel="stylesheet"/>
-                                                    
                                                 </head>
                                                 <body>
                                                 <div class="container">`
