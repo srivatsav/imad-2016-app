@@ -5,7 +5,7 @@ commentButton.onclick(function(){
 });
 */
 
-function commentHandler(var id)
+function commentHandler(id)
 {
 	alert("commentButton "+id+" clicked..!");	 
 }
