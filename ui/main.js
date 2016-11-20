@@ -71,6 +71,10 @@ login.onclick = function(){
 	      if(request.status === 200)
 	      {
 	           alert('Logged in successfully..!!');
+	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userId);
+    	       $("login").hide();
+    	       $("register").hide();
+    	       $("sessionName").show();
 	           
 	           
 	      }
@@ -84,14 +88,58 @@ login.onclick = function(){
 	      }
 	  }
 	};
-	var username = document.getElementById('username').value;
+	var username = document.getElementById('usernamesignup').value;
+	var password = document.getElementById('passwordsignup').value;
+	var email = document.getElementById('emailsignup').value;
+    
+	request.open('POST', 'http://srivatsav.imad.hasura-app.io/create-user',true);
+	request.setRequestHeader('Content-Type','application/json');
+	request.send(JSON.stringify({username: username,password: password,email: email}));
+  
+};
+
+var register = document.getElementById('register_btn');
+register.onclick= function(){
+    var request = new XMLHttpRequest();
+    var username = document.getElementById('username').value;
 	var password = document.getElementById('password').value;
     console.log(username);
     console.log(password);
 	request.open('POST', 'http://srivatsav.imad.hasura-app.io/login',true);
 	request.setRequestHeader('Content-Type','application/json');
 	request.send(JSON.stringify({username: username,password: password}));
-  
-};
+	
+	request.onreadystatechange = function (){
+	  if(request.readyState === XMLHttpRequest.DONE)
+	  {
+	      if(request.status === 200)
+	      {
+	          request.session.auth = {userId: username};
+	            alert('Registered successfully..!!');
+	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userId);
+    	       $("login").hide();
+    	       $("register").hide();
+    	       $("sessionName").show();
+	      }
+	  }
+	}
+}
+
+function checkLoginStatus()
+{
+    var request = new XMLHttpRequest();
+	request.open('GET', '/check-login',true);
+	request.send(null);
+	request.onreadystatechange = function (){
+	  if(request.readyState === XMLHttpRequest.DONE)
+	  {
+	      if(request.status === 200)
+	      {
+	          
+	      }
+	  }
+	}
+    
+}
 
 
