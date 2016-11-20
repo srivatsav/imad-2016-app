@@ -71,7 +71,7 @@ login.onclick = function(){
 	      if(request.status === 200)
 	      {
 	           alert('Logged in successfully..!!');
-	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userId);
+	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>");
     	       $("login").hide();
     	       $("register").hide();
     	       $("sessionName").show();
