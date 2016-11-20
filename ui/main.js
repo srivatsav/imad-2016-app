@@ -83,7 +83,7 @@ login.onclick = function(){
             	          console.log(articleReq.responseText);
             	          $("#login").hide();
             	          $("#register").hide();
-            	          $("#tab3Content").html(articleReq.responseText);
+            	          $("#tab3Content").append(articleReq.responseText);
             	          $("#tab3Content").show();
             	      }
             	        else if(request.status === 403)
