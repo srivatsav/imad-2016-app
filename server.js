@@ -150,11 +150,14 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+app.get('/post/:id',function(req, res){
+  res.sendFile(path.join(__dirname, 'ui', 'article.html'));
+});
 
-app.get('/articles/:aName', function(req, res){
+app.get('/articles/:aId', function(req, res){
     
     
-    pool.query("select * from article where title = $1",[req.params.aName],function(err,result)
+    pool.query("select * from article where id = $1",[req.params.aId],function(err,result)
     {
         if(err)
         {
@@ -168,7 +171,7 @@ app.get('/articles/:aName', function(req, res){
             }
             else
             {
-                res.send(result.rows);
+                res.send(buildArticleTemplate(result.rows));
             }
         }
     });
