@@ -133,6 +133,7 @@
         </script>
         <script>
         $(document).ready(function() {
+            var articleRespText;
         	var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
         	loadContent(active_tab_selector);
 		$('.nav-tabs > li > a').click(function(event){
@@ -151,6 +152,25 @@
 		var target_tab_selector = $(this).attr('href');
 		$(target_tab_selector).removeClass('hide');
 		$(target_tab_selector).addClass('active');
+		 var articleReq = new XMLHttpRequest();
+	           articleReq.open('GET','http://srivatsav.imad.hasura-app.io/articles',true);
+	           articleReq.send(null);
+	           articleReq.onreadystatechange = function ()
+	               {
+	           if(articleReq.readyState === XMLHttpRequest.DONE)
+	              {
+            	      if(articleReq.status === 200)
+            	      {
+            	          console.log(articleReq.responseText);
+            	          articleRespText = articleReq.responseText;
+            	          
+            	      }
+            	      else
+            	      {
+            	          articleRespText = "Internal Server error";
+            	      }
+	              }
+	               };
 		loadContent(target_tab_selector);
 	     });
 	     
@@ -178,7 +198,7 @@
 	          $("#tab1Content").hide();
 	          $("#tab2Content").hide();
 	          $("#tab4Content").hide();
-	          $("#tab3Content").html("<h3>*Please login or sign up to view this tab.</h3>");
+	          $("#tab3Content").html(articleRespText);
 	          $("#tab3Content").show();
 	      }
 	      else if(tab_selector=='#tab4')
