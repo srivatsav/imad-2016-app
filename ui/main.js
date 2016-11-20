@@ -74,7 +74,7 @@ login.onclick = function(){
 	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>");
 		        $("login").hide();
 			$("login").style.display="none";
-		        $("register).hide();
+		        $("register").hide();
 			$("register").style.display="none";
     	       		$("sessionName").show();
 		        $("sessionName").style.display="block";
@@ -121,7 +121,7 @@ register.onclick= function(){
 	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userId);
     	       		$("login").hide();
 			$("login").style.display="none";
-		        $("register).hide();
+		        $("register").hide();
 			$("register").style.display="none";
     	       		$("sessionName").show();
 		        $("sessionName").style.display="block";
