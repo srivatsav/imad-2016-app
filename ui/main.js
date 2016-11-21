@@ -127,23 +127,6 @@ register.onclick= function(){
 	}
 }
 
-function checkLoginStatus()
-{
-    var request = new XMLHttpRequest();
-	request.open('GET', '/check-login',true);
-	request.send(null);
-	request.onreadystatechange = function (){
-	  if(request.readyState === XMLHttpRequest.DONE)
-	  {
-	      if(request.status === 200)
-	      {
-	          
-	      }
-	  }
-	}
-    
-}
-
 function invalidateSession()
 {
 	 var request = new XMLHttpRequest();
