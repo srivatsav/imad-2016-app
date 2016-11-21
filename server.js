@@ -70,7 +70,8 @@ app.post('/create-user',function(req, res){
       }
       else
       {
-          res.send('User'+ username+' successfully created.');
+          req.session.auth = {userName: username};
+          res.send(req.session.auth.userName.toString());
       }
    });
 });
