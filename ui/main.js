@@ -64,15 +64,13 @@ function validateLoginForm()
 {
 	var userName = document.getElementById("username").value.trim();
 	if(userName==''){
-		document.getElementById("username-span").innerHTML = "*Username cannot be empty."
-		document.getElementById("username-span").style.display="block";
+		document.getElementById("login-span").innerHTML = "*Username cannot be empty."		
 		return false;}	
 	var passWord =document.getElementById("password").value;
 	
 	if(passWord=='')
 	{
-		document.getElementById("password-span").innerHTML = "*Password cannot be empty.";
-		document.getElementById("password-span").style.display="block";
+		document.getElementById("login-span").innerHTML = "*Password cannot be empty.";		
 		return false;
 	}
 	
@@ -82,34 +80,29 @@ function validateSignUpForm()
 {
 	var userName = document.getElementById("usernamesignup").value.trim();
 	if(userName==''){
-		document.getElementById("usernamesignup-span").innerHTML = "*Username cannot be empty."
-		document.getElementById("usernamesignup-span").style.display="block";
+		document.getElementById("signup-span").innerHTML = "*Username cannot be empty."		
 		return false;}
 	if(userName.length<8)
 	{
-		document.getElementById("usernamesignup-span").innerHTML = "*Username must be atleast 8 characters."
-		document.getElementById("usernamesignup-span").style.display="block";
+		document.getElementById("signup-span").innerHTML = "*Username must be atleast 8 characters."		
 		return false;
 	}	
 	var passWord =  document.getElementById("passwordsignup").value;
 	if(passWord=='')
 	{
-		document.getElementById("passwordsignup-span").innerHTML = "*Password cannot be empty.";
-		document.getElementById("passwordsignup-span").style.display="block";
+		document.getElementById("signup-span").innerHTML = "*Password cannot be empty.";		
 		return false;
 	}
 	if(passWord.length<8)
 	{
-		document.getElementById("passwordsignup-span").innerHTML = "*Password must be atleast 8 characters."
-		document.getElementById("passwordsignup-span").style.display="block";
+		document.getElementById("signup-span").innerHTML = "*Password must be atleast 8 characters."		
 		return false;
 	}
 	
 	var confirmPassword = document.getElementById("confirmpasswordsignup").value;
 	if(passWord!=confirmPassword)
 	{
-		document.getElementById("confirmpasswordsignup-span").innerHTML = "*Passwords do not match.";
-		document.getElementById("confirmpasswordsignup-span").style.display="block";
+		document.getElementById("signup-span").innerHTML = "*Passwords do not match.";		
 		return false;
 	}
 	
@@ -117,8 +110,7 @@ function validateSignUpForm()
 	var email = document.getElementById("emailsignup").value.trim();
 	if(!email.match(mailformat))
 	{
-		document.getElementById("emailsignup-span").innerHTML = "*invalid e-mail.";
-		document.getElementById("emailsignup-span").style.display="block";
+		document.getElementById("signup-span").innerHTML = "*invalid e-mail.";		
 		return false;
 	}
 	return true;
