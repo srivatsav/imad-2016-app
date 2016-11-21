@@ -208,8 +208,34 @@
 	          $("#tab1Content").hide();
 	          $("#tab2Content").hide();
 	          $("#tab3Content").hide();
-	          $("#tab4Content").load("/form.html");
-	          $("#tab4Content").show();
+		  var checkLoginReq = new XMLHttpRequest();
+	          checkLoginReq.open('GET','http://srivatsav.imad.hasura-app.io/check-login',true);
+	          checkLoginReq.send(null);
+		  checkLoginReq.onreadystatechange = function ()
+	               {
+	           if(checkLoginReq.readyState === XMLHttpRequest.DONE)
+	              {
+			      if(checkLoginReq.status === 200)
+			      {
+				      var respText = checkLoginReq.responseText;
+				      if(respText === 'true')
+				      {
+					      alert("You are already logged in as: "+ checkLoginReq.session.auth.userId);
+					      $("login").hide();
+					      $("register").hide();
+					      $("sessionName").show();
+					      $("logout_btn").show();
+					      
+				      }
+				      else
+				      {					      
+					      $("#tab4Content").load("/form.html");
+	          				$("#tab4Content").show();
+				      }
+			      }
+		      }
+		  }
+	          
 	      }
 	  }
 	  
