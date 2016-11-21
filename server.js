@@ -103,7 +103,7 @@ app.post('/login',function(req, res){
                 req.session.auth = {userName: result.rows[0].username};
                 
                 //set cookie with sessinId
-                res.send(req.session.auth.userName.toString());    
+                res.send('valid credentials.!');    
                 
                 
               }
