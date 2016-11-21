@@ -68,7 +68,7 @@ function validateLoginForm()
 		return false;}
 	var passWord =document.getElementById("password").value;
 	var alphaNum = /^[0-9a-zA-Z]+$/;
-	if(!passWord.match(alphaNum))
+	if(passWord.match(alphaNum))
 	{
 		document.getElementById("password-span").innerHTML = "*Only alphanumeric characters are allowed.";
 		return false;
@@ -83,7 +83,7 @@ function validateSignUpForm()
 		return false;}
 	var alphaNum = /^[0-9a-zA-Z]+$/;
 	var passWord =  document.getElementById("passwordsignup").value;
-	if(!passWord.match(alphaNum))
+	if(passWord.match(alphaNum))
 	{
 		document.getElementById("passwordsignup-span").innerHTML = "*Only alphanumeric characters are allowed.";
 		return false;
