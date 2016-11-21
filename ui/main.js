@@ -73,11 +73,11 @@ login.onclick = function(){
 	           alert('Logged in successfully..!!');
 	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>");
 		        $("login").hide();
-			$("login").style.display="none";
+			document.getElementById("login").style.display="none";
 		        $("register").hide();
-			$("register").style.display="none";
+			document.getElementById("register").style.display="none";
     	       		$("sessionName").show();
-		        $("sessionName").style.display="block";
+		        document.getElementById("sessionName").style.display="block";
 	           
 	           
 	      }
@@ -120,11 +120,11 @@ register.onclick= function(){
 	            alert('Registered successfully..!!');
 	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userId);
     	       		$("login").hide();
-			$("login").style.display="none";
+			document.getElementById("login").style.display="none";
 		        $("register").hide();
-			$("register").style.display="none";
+			document.getElementById("register").style.display="none";
     	       		$("sessionName").show();
-		        $("sessionName").style.display="block";
+		        document.getElementById("sessionName").style.display="block";
 	      }
 	  }
 	}
