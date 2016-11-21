@@ -217,15 +217,16 @@
 	              {
 			      if(checkLoginReq.status === 200)
 			      {
+				      console.log(checkLoginReq.responseText);
 				      var respText = checkLoginReq.responseText;
-				      if(respText === 'true')
+				      if(respText != 'false')
 				      {
-					      alert("You are already logged in as: "+ checkLoginReq.session.auth.userId);
+					      alert("You are already logged in as: "+ respText);
 					      document.getElementById("login").style.display = "none";
 					      document.getElementById("register").style.display = "none";
 					      document.getElementById("sessionName").style.display = "block";
 					      document.getElementById("logout_btn").style.display = "block";
-					      
+					      $("#tab4Content").show();
 					      
 				      }
 				      else
