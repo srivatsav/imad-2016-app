@@ -72,14 +72,11 @@ login.onclick = function(){
 	      {
 	          	 alert('Logged in successfully..!!');
 	           
-		        $("login").hide();
-			document.getElementById("login").style.display="none";
-		        $("register").hide();
-			document.getElementById("register").style.display="none";
-    	       		$("sessionName").show();
-		        document.getElementById("sessionName").style.display="block";
+		        $("login").hide();			
+		        $("register").hide();			
+    	       		$("sessionName").show();		        
 		        $("logout_btn").show();
-		        document.getElementById("logout_btn").style.display="block";
+		       
 	           
 	           
 	      }
@@ -118,15 +115,13 @@ register.onclick= function(){
 	  {
 	      if(request.status === 200)
 	      {
-	          request.session.auth = {userId: username};
+	         
 	            alert('Registered successfully..!!');
-	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userId);
-    	       		$("login").hide();
-			document.getElementById("login").style.display="none";
-		        $("register").hide();
-			document.getElementById("register").style.display="none";
+	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userName);
+    	       		$("login").hide();			
+		        $("register").hide();			
     	       		$("sessionName").show();
-		        document.getElementById("sessionName").style.display="block";
+		        
 	      }
 	  }
 	}
@@ -160,14 +155,11 @@ function invalidateSession()
 	      if(request.status === 200)
 	      {
 	          alert("Successfully Logged out.!");
-		       $("login").show();
-			document.getElementById("login").style.display="block";
-		        $("register").show();
-			document.getElementById("register").style.display="block";
-    	       		$("sessionName").hide();
-		        document.getElementById("sessionName").style.display="none";
+		       $("login").show();			
+		        $("register").show();			
+    	       		$("sessionName").hide();		        
 		        $("logout_btn").hide();
-		        document.getElementById("logout_btn").style.display="none";
+		        
 		  
 	      }
 	  }
