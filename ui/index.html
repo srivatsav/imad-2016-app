@@ -171,16 +171,18 @@ function loadArticleRespText()
             	      {
             	         
             	          articleRespText = articleReq.responseText;
+			      return articleRespText;
             	          
             	      }
             	      else
             	      {      	          articleRespText = "Internal Server error";
+		      		 return articleRespText;
             	      }
 	              }
 	               };   
 	    	 articleReq.open('GET','http://srivatsav.imad.hasura-app.io/articles',true);
 	           articleReq.send(null);
-            return articleRespText;
+            
 }
 		
 function loadContent(tab_selector)
