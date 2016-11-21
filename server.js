@@ -224,7 +224,7 @@ app.get('/articles',function(req, res){
             	             htmlTemp += buildArticleTemplate(articleArray[i]);
             	          }
             	                   
-            	       console.log(htmlTemp);
+            	       
             	      res.send(htmlTemp);
             	      
             	      }
