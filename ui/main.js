@@ -75,7 +75,7 @@ login.onclick = function(){
 		        document.getElementById("login").style.display = "none"	;		
 		        document.getElementById("register").style.display = "none";
 		        var sessionName = document.getElementById("sessionName");
-		      	sessionName.innerHTML += request.responseText;
+		      	sessionName.innerHTML = '<h3>Welcome. You are looged in as '+request.responseText+'</h3>';
     	       		document.getElementById("sessionName").style.display = "block"	;	        
 		        document.getElementById("logout_btn").style.display = "block";
 		       
