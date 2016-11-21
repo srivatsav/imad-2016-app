@@ -70,14 +70,16 @@ login.onclick = function(){
 	  {
 	      if(request.status === 200)
 	      {
-	           alert('Logged in successfully..!!');
-	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>");
+	          	 alert('Logged in successfully..!!');
+	           
 		        $("login").hide();
 			document.getElementById("login").style.display="none";
 		        $("register").hide();
 			document.getElementById("register").style.display="none";
     	       		$("sessionName").show();
 		        document.getElementById("sessionName").style.display="block";
+		        $("logout_btn").show();
+		        document.getElementById("logout_btn").style.display="block";
 	           
 	           
 	      }
@@ -147,4 +149,28 @@ function checkLoginStatus()
     
 }
 
+function invalidateSession()
+{
+	 var request = new XMLHttpRequest();
+	 request.open('GET', '/logout',true);
+	 request.send(null);
+	request.onreadystatechange = function (){
+	  if(request.readyState === XMLHttpRequest.DONE)
+	  {
+	      if(request.status === 200)
+	      {
+	          alert("Successfully Logged out.!");
+		       $("login").show();
+			document.getElementById("login").style.display="block";
+		        $("register").show();
+			document.getElementById("register").style.display="block";
+    	       		$("sessionName").hide();
+		        document.getElementById("sessionName").style.display="none";
+		        $("logout_btn").hide();
+		        document.getElementById("logout_btn").style.display="none";
+		  
+	      }
+	  }
+	}
+}
 
