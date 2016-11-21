@@ -65,14 +65,17 @@ function validateLoginForm()
 	var userName = document.getElementById("username").value.trim();
 	if(userName==''){
 		document.getElementById("username-span").innerHTML = "*Username cannot be empty."
-		return false;}
+		document.getElementById("username-span").style.display="block";
+		return false;}	
 	var passWord =document.getElementById("password").value;
-	var alphaNum = /^[0-9a-zA-Z]+$/;
-	if(passWord.match(alphaNum))
+	
+	if(passWord=='')
 	{
-		document.getElementById("password-span").innerHTML = "*Only alphanumeric characters are allowed.";
+		document.getElementById("password-span").innerHTML = "*Password cannot be empty.";
+		document.getElementById("password-span").style.display="block";
 		return false;
 	}
+	
 	return true;	
 }
 function validateSignUpForm()
@@ -80,18 +83,33 @@ function validateSignUpForm()
 	var userName = document.getElementById("usernamesignup").value.trim();
 	if(userName==''){
 		document.getElementById("usernamesignup-span").innerHTML = "*Username cannot be empty."
+		document.getElementById("usernamesignup-span").style.display="block";
 		return false;}
-	var alphaNum = /^[0-9a-zA-Z]+$/;
-	var passWord =  document.getElementById("passwordsignup").value;
-	if(passWord.match(alphaNum))
+	if(userName.length<8)
 	{
-		document.getElementById("passwordsignup-span").innerHTML = "*Only alphanumeric characters are allowed.";
+		document.getElementById("usernamesignup-span").innerHTML = "*Username must be atleast 8 characters."
+		document.getElementById("usernamesignup-span").style.display="block";
+		return false;
+	}	
+	var passWord =  document.getElementById("passwordsignup").value;
+	if(passWord=='')
+	{
+		document.getElementById("passwordsignup-span").innerHTML = "*Password cannot be empty.";
+		document.getElementById("passwordsignup-span").style.display="block";
 		return false;
 	}
+	if(passWord.length<8)
+	{
+		document.getElementById("passwordsignup-span").innerHTML = "*Password must be atleast 8 characters."
+		document.getElementById("passwordsignup-span").style.display="block";
+		return false;
+	}
+	
 	var confirmPassword = document.getElementById("confirmpasswordsignup").value;
 	if(passWord!=confirmPassword)
 	{
 		document.getElementById("confirmpasswordsignup-span").innerHTML = "*Passwords do not match.";
+		document.getElementById("confirmpasswordsignup-span").style.display="block";
 		return false;
 	}
 	
@@ -100,6 +118,7 @@ function validateSignUpForm()
 	if(!email.match(mailformat))
 	{
 		document.getElementById("emailsignup-span").innerHTML = "*invalid e-mail.";
+		document.getElementById("emailsignup-span").style.display="block";
 		return false;
 	}
 	return true;
