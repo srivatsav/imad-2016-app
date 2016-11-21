@@ -158,7 +158,32 @@
 	     });	     
 	  };
 		window.onunload = function(){}; 
-		 function loadContent(tab_selector)
+
+function loadArticleRespText()
+    {
+      var articleRespText;
+		      var articleReq = new XMLHttpRequest();	          
+	           articleReq.onreadystatechange = function ()
+	               {
+	           if(articleReq.readyState === XMLHttpRequest.DONE)
+	              {
+            	      if(articleReq.status === 200)
+            	      {
+            	         
+            	          articleRespText = articleReq.responseText;
+            	          
+            	      }
+            	      else
+            	      {      	          articleRespText = "Internal Server error";
+            	      }
+	              }
+	               };   
+	    	 articleReq.open('GET','http://srivatsav.imad.hasura-app.io/articles',true);
+	           articleReq.send(null);
+            return articleRespText;
+}
+		
+function loadContent(tab_selector)
 	  {
 	      if(tab_selector=='#tab1')
 	      {
@@ -180,8 +205,10 @@
 	      {
 	          $("#tab1Content").hide();
 	          $("#tab2Content").hide();
-	          $("#tab4Content").hide();
-            loadArticleRespText();
+	          $("#tab4Content").hide();            	
+		  var articleRespText = loadArticleRespText();
+		   $("#tab3Content").html(articleRespText);
+	          $("#tab3Content").show();
 	         
 	      }
 	      else if(tab_selector=='#tab4')
@@ -195,30 +222,7 @@
 	  }
     
     
-    function loadArticleRespText()
-    {
-      var articleRespText;
-		      var articleReq = new XMLHttpRequest();	          
-	           articleReq.onreadystatechange = function ()
-	               {
-	           if(articleReq.readyState === XMLHttpRequest.DONE)
-	              {
-            	      if(articleReq.status === 200)
-            	      {
-            	         
-            	          articleRespText = articleReq.responseText;
-            	          
-            	      }
-            	      else
-            	      {      	          articleRespText = "Internal Server error";
-            	      }
-	              }
-	               };   
-	    	 articleReq.open('GET','http://srivatsav.imad.hasura-app.io/articles',true);
-	           articleReq.send(null);
-            $("#tab3Content").html(articleRespText);
-	          $("#tab3Content").show();
-}
+   
 
 function checkLoginStatus()
 {
@@ -229,8 +233,7 @@ function checkLoginStatus()
 	           if(checkLoginReq.readyState === XMLHttpRequest.DONE)
 	              {
 			      if(checkLoginReq.status === 200)
-			      {
-				      console.log(checkLoginReq.responseText);
+			      {				      
 				      var respText = checkLoginReq.responseText;
 				      if(respText != 'false')
 				      {
