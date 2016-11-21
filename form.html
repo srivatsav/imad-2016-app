@@ -31,14 +31,16 @@
                         <div id="login" class="animate form">
                             
                                 <h1>Log in</h1> 
-				<form action="#">
+				
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your username </label>
                                     <input id="username" name="username" required="required" type="text" placeholder="myusername "/>
+				    <span id="username-span" style="color: red"></span>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Your password </label>
                                     <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+				    <span id="password-span" style="color: red"></span>
                                 </p>
                                 
                                 <p>
@@ -46,7 +48,7 @@
 					  <span class="glyphicon glyphicon-log-in"></span> Log in
 					</button>
 				</p>
-				</form>
+				
                                 <p class="change_link">
 									Not a member yet ?
 									<a href="#toregister" class="to_register">Sign up</a>
@@ -56,25 +58,33 @@
                         <div id="register" class="animate form">
                             
                                 <h1> Sign up </h1> 
-				<form action="#">
+				
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
                                     <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="myusername" />
+				    <span id="usernamesignup-span" style="color: red"></span>
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
                                     <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="email@mail.com"/> 
+			            <span id="emailsignup-span" style="color: red"></span>
                                 </p>
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
                                     <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="password"/>
+				    <span id="passwordsignup-span" style="color: red"></span>
+                                </p>
+				<p> 
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p">Confirm Your password </label>
+                                    <input id="confirmpasswordsignup" name="passwordsignup" required="required" type="password" placeholder="password"/>
+				    <span id="confirmpasswordsignup-span" style="color: red"></span>
                                 </p>
                                <p>
 					<button type="button" id="register_btn" class="btn btn-default btn-lg">
-					  <span class="glyphicon glyphicon-hand-up"></span> Log in
+					  <span class="glyphicon glyphicon-hand-up"></span> Sign Up
 					</button>
 				</p>
-				</form>
+				
                                 <p class="change_link">  
 									Already a member ?
 									<a href="#tologin"  class="to_register"> Go and log in </a>
