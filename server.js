@@ -100,7 +100,7 @@ app.post('/login',function(req, res){
               if(hashedPassword===dbString)
               {
                 //set a session
-                req.session.auth = {userId: result.rows[0].id,userName: result.rows[0].username};
+                req.session.auth = {userName: result.rows[0].username};
                 
                 //set cookie with sessinId
                 res.send('valid credentials.!');    
@@ -119,7 +119,7 @@ app.post('/login',function(req, res){
 
 
 app.get('/check-login',function(req, res){
-   if(req.session && req.session.auth && req.session.auth.userId){
+   if(req.session && req.session.auth && req.session.auth.userName){
        res.send(req.session.auth.userName.toString());
    }else{
        res.send('false');
