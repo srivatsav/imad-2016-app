@@ -239,9 +239,7 @@ function checkLoginStatus()
 				      var respText = checkLoginReq.responseText;
 				      if(respText != 'false')
 				      {
-					      alert("You are already logged in as: "+ respText);
-					      document.getElementById("login").style.display = "none";
-					      document.getElementById("register").style.display = "none";
+					      alert("You are already logged in as: "+ respText);					      
 					      var sessionName = document.getElementById("sessionName");
 					      sessionName.innerHTML = sessionName.innerHTML + respText;
 					      document.getElementById("sessionName").style.display = "block";
