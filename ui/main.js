@@ -72,10 +72,10 @@ login.onclick = function(){
 	      {
 	          	 alert('Logged in successfully..!!');
 	           
-		        $("login").hide();			
-		        $("register").hide();			
-    	       		$("sessionName").show();		        
-		        $("logout_btn").show();
+		        document.getElementById("login").style.display = "none"	;		
+		        document.getElementById("register").style.display = "none";
+    	       		document.getElementById("sessionName").style.display = "block"	;	        
+		        document.getElementById("logout_btn").style.display = "block";
 		       
 	           
 	           
@@ -116,11 +116,11 @@ register.onclick= function(){
 	      if(request.status === 200)
 	      {
 	         
-	            alert('Registered successfully..!!');
-	           $("sessionName").html("<h3> Welcome! You are Logged in as </h3>"+request.session.auth.userName);
-    	       		$("login").hide();			
-		        $("register").hide();			
-    	       		$("sessionName").show();
+	            alert('Registered successfully..!!');      			
+    	       	     document.getElementById("login").style.display = "none"			
+		        document.getElementById("register").style.display = "none"
+    	       		document.getElementById("sessionName").style.display = "block"		        
+		        document.getElementById("logout_btn").style.display = "block"
 		        
 	      }
 	  }
@@ -155,10 +155,11 @@ function invalidateSession()
 	      if(request.status === 200)
 	      {
 	          alert("Successfully Logged out.!");
-		       $("login").show();			
-		        $("register").show();			
-    	       		$("sessionName").hide();		        
-		        $("logout_btn").hide();
+		       document.getElementById("login").style.display = "block"			
+		        document.getElementById("register").style.display = "block"
+    	       		document.getElementById("sessionName").style.display = "none"		        
+		        document.getElementById("logout_btn").style.display = "none"
+		        
 		        
 		  
 	      }
