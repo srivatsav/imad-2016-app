@@ -171,11 +171,12 @@ function loadArticleRespText()
             	      {
             	         
             	          articleRespText = articleReq.responseText;
-			      return articleRespText;
+			       $("#tab3Content").html(articleRespText);
+	          		$("#tab3Content").show();
             	          
             	      }
             	      else
-            	      {      	          articleRespText = "Internal Server error";
+            	      {      	 articleRespText = "Internal Server error";
 		      		 return articleRespText;
             	      }
 	              }
@@ -208,9 +209,8 @@ function loadContent(tab_selector)
 	          $("#tab1Content").hide();
 	          $("#tab2Content").hide();
 	          $("#tab4Content").hide();            	
-		  var articleRespText = loadArticleRespText();
-		   $("#tab3Content").html(articleRespText);
-	          $("#tab3Content").show();
+		   loadArticleRespText();
+		  
 	         
 	      }
 	      else if(tab_selector=='#tab4')
