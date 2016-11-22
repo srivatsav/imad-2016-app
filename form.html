@@ -30,6 +30,14 @@
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
 					<strong>Login Failed! </strong>Invalid credentials.
 					</div>
+		     <div id="successsignup-alert" style="display: none" class="alert alert-success alert-dismissable">
+    					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    					<strong>Successfully</strong> Registered!.
+  					</div>
+					<div id="failuresignup-alert" style="display: none"  class="alert alert-danger alert-dismissable">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+					<strong>Registration Failed! </strong>Please try again.
+					</div>
                     <div id="wrapper">
 			    <div id="sessionName" style="display: none"></div>
 			  <button type="button" id="logout_btn" class="btn btn-default btn-sm" style="display: none" onclick="invalidateSession()">
@@ -62,14 +70,7 @@
 								</p>
                                                     </div>
 
-			    <div id="successsignup-alert" style="display: none" class="alert alert-success alert-dismissable">
-    					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-    					<strong>Successfully</strong> Registered!.
-  					</div>
-					<div id="failuresignup-alert" style="display: none"  class="alert alert-danger alert-dismissable">
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-					<strong>Registration Failed! </strong>Please try again.
-					</div>
+			  
                         <div id="register" class="animate form">                            	
                                 <h1> Sign up </h1> 
 				<p><span id="signup-span" style="color: red"></span></p>
