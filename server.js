@@ -201,8 +201,9 @@ app.get('/articles/:aId', function(req, res){
             }
             else
             {
-                console.log(result.rows);                
-                res.send(buildArticleTemplate(result.rows));
+                console.log(result.rows);  
+                var res = result.rows;
+                res.send(buildArticleTemplate(res[0]));
             }
         }
     });
@@ -249,17 +250,17 @@ app.get('/comment.js',function(req, res) {
 
 function buildArticleTemplate(data)
 {
-    var article_data = data;
-    var id = article_data[0].id;
-    var title = article_data[0].title;    
-    var article_date = article_data[0].date.toDateString();
-    var heading = article_data[0].heading;
-    var content = article_data[0].content;
+   
+    var id = data.id;
+    var title = data.title;    
+    var article_date = data.date;
+    var heading = data.heading;
+    var content = data.content;
     
     var htmlTemplate = 
                `<hr/>
                 <h3>${heading}</h3>
-                <div>${article_date}</div>
+                <div>${article_date.toDateString()}</div>
                 <div>
                     ${content}
                 </div>
