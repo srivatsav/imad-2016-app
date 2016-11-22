@@ -4,7 +4,7 @@ var x = window.location.href.split('/')
 function loadCommentForm () {  
         
     // Submit username/password to login
-   
+   var submit = document.getElementById('submit_comment');
         // Create a request object
         var request = new XMLHttpRequest();
         
