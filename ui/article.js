@@ -4,8 +4,7 @@ var x = window.location.href.split('/')
 function loadCommentForm () {  
         
     // Submit username/password to login
-    var submit = document.getElementById('submit_comment');
-    submit.onclick = function () {
+   
         // Create a request object
         var request = new XMLHttpRequest();
         
@@ -31,8 +30,8 @@ function loadCommentForm () {
         request.send(JSON.stringify({comment: comment}));  
         submit.value = 'Submitting...';
         
-    };
-}
+    
+};
 
 function loadLogin () {
     // Check if the user is already logged in
