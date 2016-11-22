@@ -239,10 +239,10 @@ function checkLoginStatus()
 				      var respText = checkLoginReq.responseText;
 				      if(respText != 'false')
 				      {
-					      alert("You are already logged in as: "+ respText);			      					     
-					    	$("#tab4Content").load("/form.html");
-						var sessionName = document.getElementById("sessionName");
-						sessionName.innerHTML = '<h3>Welcome. You are logged in as '+respText+'</h3>';
+					      alert("You are already logged in as: "+ respText);
+					      
+					      
+					      $("#tab4Content">sessionName).innerHTML = '<h3>Welcome. You are logged in as '+respText+'</h3>';					    						
 						document.getElementById("sessionName").style.display = "block"	;	        
 						document.getElementById("logout_btn").style.display = "block";
 					      $("#tab4Content").show();
