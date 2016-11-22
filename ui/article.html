@@ -12,9 +12,7 @@
           <script type="text/javascript">
           	$(document).ready(function(){
           		var x = window.location.href.split('/')
-          		var id =x[x.length-1];          
-			alert(id);
-			alert(id.toString());
+          		var id =x[x.length-1];          			
           		var request = new XMLHttpRequest();
               request.open('GET', 'http://srivatsav.imad.hasura-app.io/articles/'+id,true);
 	            request.send(null);
