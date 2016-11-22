@@ -39,8 +39,13 @@ function loadLogin () {
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
+                 document.getElementById("commentForm").style.display = "block";
                 loadCommentForm(this.responseText);
             }
+                  else if (request.status ===403){
+                            alert("Please login to post a comment.!");
+                            loadComments();
+                  }
         }
     };
     
