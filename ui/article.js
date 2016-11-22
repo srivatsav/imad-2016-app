@@ -56,21 +56,23 @@ function loadComments () {
         if (request.readyState === XMLHttpRequest.DONE) {
             var comments = document.getElementById('comments');
             if (request.status === 200) {
-                var content = `	<div class="container" >
+                      
+                var content = `<div class="container" >
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <div class="panel panel-white post panel-shadow">
+                                            `;
+                var commentsData = JSON.parse(this.responseText);
+                for (var i=0; i< commentsData.length; i++) {
+                    var time = new Date(commentsData[i].timestamp);
+                    
+                        content += `<div class="panel panel-white post panel-shadow">
                                                 <div class="post-heading">
                                                     <div class="pull-left image">
                                                         <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
                                                     </div>
                                                     <div class="pull-left meta">
-                                                        <div class="title h5">`;
-                var commentsData = JSON.parse(this.responseText);
-                for (var i=0; i< commentsData.length; i++) {
-                    var time = new Date(commentsData[i].timestamp);
-                    
-                        content += `<a href="#"><b>${commentsData[i].username}</b></a>
+                                                        <div class="title h5">
+                              <a href="#"><b>${commentsData[i].username}</b></a>
                             made a post. </div>
                         <h6 class="text-muted time">${time.toLocaleTimeString()} on ${time.toLocaleDateString()}</h6>
                     </div>
@@ -87,9 +89,9 @@ function loadComments () {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>`;
         
-        </div>
+     content +=` </div>
         
     </div>`;        
                 }
