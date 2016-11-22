@@ -201,6 +201,7 @@ app.get('/articles/:aId', function(req, res){
             }
             else
             {
+                console.log(result.rows);
                 res.send(buildArticleTemplate(result.rows));
             }
         }
