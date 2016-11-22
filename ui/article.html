@@ -22,7 +22,8 @@
                         if(request.status === 200)
                         {
                           var post = request.responseText;
-                          $("ithArticle").html(post);
+				document.getElementById("ithArticle").innerHTML = post;
+                          //$("ithArticle").html(post);
                           $("ithArticle").show();
                         }
                         else
