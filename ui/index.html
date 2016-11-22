@@ -240,10 +240,12 @@ function checkLoginStatus()
 				      if(respText != 'false')
 				      {
 					      alert("You are already logged in as: "+ respText);
-					     	document.getElementById("sessionName").innerHTML = '<h3>Welcome. You are logged in as '+respText+'</h3>';				    						
-						document.getElementById("sessionName").style.display = "block"	;	        
-						document.getElementById("logout_btn").style.display = "block";
-					      $("#tab4Content").show();
+					      var loginSessionLayerId = $(".loginSessionLayer").attr("id");
+					     	document.getElementById(loginSessionLayerId).innerHTML = '<h3>Welcome. You are logged in as '+respText+'</h3>';				    						
+						document.getElementById(loginSessionLayerId).style.display = "block"	;
+					      var logoutButtonId = $(".logoutButton").attr("id");
+						document.getElementById(logoutButtonId).style.display = "block";
+					      
 					      
 				      }
 				      else
