@@ -144,7 +144,9 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/tabContent.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'tabContent.js'));
 });
-
+app.get('/ui/clean-blog.min.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'clean-blog.min.css'));
+});
 //using crypto library foor hashing..
 function hash(input,salt)
 {
