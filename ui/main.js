@@ -129,8 +129,7 @@ login.onclick = function(){
 		  {
 		      if(request.status === 200)
 		      {
-				 alert('Logged in successfully..!!');
-
+				document.getElementById("success-alert").style.display = "block";
 				document.getElementById("login").style.display = "none"	;		
 				document.getElementById("register").style.display = "none";
 				var sessionName = document.getElementById("sessionName");
@@ -143,11 +142,11 @@ login.onclick = function(){
 		      }
 		      else if(request.status === 403)
 		      {
-			  alert('Username/password is incorrect');
+			  document.getElementById("failure-alert").style.display = "block";
 		      }
 		      else if(request.status === 500)
 		      {
-			  alert('server error');
+			  alert('Internal server error');
 		      }
 		  }
 		};
@@ -180,7 +179,7 @@ register.onclick= function(){
 		      if(request.status === 200)
 		      {
 
-			    alert('Registered successfully..!!');      			
+			    document.getElementById("successsignup-alert").style.display = "block";    			
 			     document.getElementById("login").style.display = "none"			
 				document.getElementById("register").style.display = "none"
 			       var sessionName = document.getElementById("sessionName");
@@ -188,6 +187,10 @@ register.onclick= function(){
 				document.getElementById("sessionName").style.display = "block"	;	    	       				        
 				document.getElementById("logout_btn").style.display = "block"
 
+		      }
+			   else if(request.status === 500)
+		      {
+			  document.getElementById("failuresignup-alert").style.display = "block";
 		      }
 		  }
 		}
