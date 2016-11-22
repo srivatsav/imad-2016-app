@@ -249,12 +249,12 @@ app.get('/comment.js',function(req, res) {
 
 function buildArticleTemplate(data)
 {
-    var id = data.id;
-    var title = data.title;
-    console.log(data.date);
-    var article_date = data.date.toDateString();
-    var heading = data.heading;
-    var content = data.content;
+    var article_data = data;
+    var id = article_data[0].id;
+    var title = article_data[0].title;    
+    var article_date = article_data[0].date.toDateString();
+    var heading = article_data[0].heading;
+    var content = article_data[0].content;
     
     var htmlTemplate = 
                `<hr/>
