@@ -251,14 +251,14 @@ function buildArticleTemplate(data)
 {
     var id = data.id;
     var title = data.title;
-    var date = data.date;
+    var article_date = data.date;
     var heading = data.heading;
     var content = data.content;
     
     var htmlTemplate = 
                `<hr/>
                 <h3>${heading}</h3>
-                <div>${date.toDateString()}</div>
+                <div>${article_date.toDateString()}</div>
                 <div>
                     ${content}
                 </div>
