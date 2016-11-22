@@ -17,6 +17,7 @@ function commentHandler(id)
 		      var respText = request.responseText;
 		      if(respText!='false')
 		      {
+			     
 			       window.location.href = '/post/'+id; 
 		      }
 		      else
