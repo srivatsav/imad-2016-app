@@ -28,8 +28,16 @@
 			  <button type="button" id="logout_btn" class="btn btn-default btn-sm" style="display: none" onclick="invalidateSession()">
 			  	<span class="glyphicon glyphicon-log-out"></span> Log out
 			  </button>
-                        <div id="login" class="animate form">
-                            
+                        <div id="login" class="animate form">				
+					<div id="success-alert" style="display: none" class="alert alert-success alert-dismissable">
+    					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    					<strong>Successfully</strong> Logged In!.
+  					</div>
+					<div id="failure-alert" style="display: none"  class="alert alert-danger alert-dismissable">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+					<strong>Login Failed! </strong>Invalid credentials.
+					</div>
+				
                                 <h1>Log in</h1> 
 				<p><span id="login-span" style="color: red;"></span></p>
                                 <p> 
@@ -56,7 +64,14 @@
                                                     </div>
 
                         <div id="register" class="animate form">
-                            
+                            	<div id="successsignup-alert" style="display: none" class="alert alert-success alert-dismissable">
+    					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    					<strong>Successfully</strong> Registered!.
+  					</div>
+					<div id="failuresignup-alert" style="display: none"  class="alert alert-danger alert-dismissable">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+					<strong>Registration Failed! </strong>Please try again.
+					</div>
                                 <h1> Sign up </h1> 
 				<p><span id="signup-span" style="color: red"></span></p>
                                 <p> 
