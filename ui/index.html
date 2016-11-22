@@ -240,6 +240,10 @@ function checkLoginStatus()
 				      if(respText != 'false')
 				      {
 					      alert("You are already logged in as: "+ respText);			      					     
+					      var sessionName = document.getElementById("sessionName");
+					      sessionName.innerHTML = sessionName.innerHTML + respText;
+					      document.getElementById("sessionName").style.display = "block";
+					      document.getElementById("logout_btn").style.display = "block";
 					      $("#tab4Content").show();
 					      
 				      }
