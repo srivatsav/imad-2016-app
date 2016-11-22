@@ -201,7 +201,7 @@ app.get('/articles/:aId', function(req, res){
             }
             else
             {
-                console.log(result.rows);
+                console.log(result.rows);                
                 res.send(buildArticleTemplate(result.rows));
             }
         }
@@ -251,6 +251,7 @@ function buildArticleTemplate(data)
 {
     var id = data.id;
     var title = data.title;
+    console.log(data.date);
     var article_date = data.date.toDateString();
     var heading = data.heading;
     var content = data.content;
