@@ -69,15 +69,13 @@ function loadComments () {
             var comments = document.getElementById('comments');
             if (request.status === 200) {
                       
-                var content = `<div class="container" >
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            `;
+                var content = `<div class="container" > `;
                 var commentsData = JSON.parse(this.responseText);
                 for (var i=0; i< commentsData.length; i++) {
                     var time = new Date(commentsData[i].timestamp);
                     
-                        content += `<div class="panel panel-white post panel-shadow">
+                        content += `<div class="row">
+                                        <div class="col-sm-8"><div class="panel panel-white post panel-shadow">
                                                 <div class="post-heading">
                                                     <div class="pull-left image">
                                                         <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
@@ -101,11 +99,11 @@ function loadComments () {
                     </div>
                 </div>
             </div>
-        </div>`;
+        </div>
+       </div>
+</div>`;
         
-     content +=` </div>
-        
-    </div>`;        
+     content +=`</div>`;        
                 }
                 comments.innerHTML = content;
             } else {
