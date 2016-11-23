@@ -129,8 +129,8 @@ login.onclick = function(){
 		  {
 		      if(request.status === 200)
 		      {
-			      var sessionContent = `<div id="sessionName" style="font-weight:100;font-family: 'Montserrat',sans-serif;font-size: 31px;text-transform: lowercase;letter-spacing: 0em" class="loginSessionLayer">
-							<h3>Welcome. You are logged in as ${request.responseText}</h3</div>
+			      var sessionContent = `<div id="sessionName" class="loginSessionLayer">
+							<h3 style="font-weight:100;font-family: 'Montserrat',sans-serif;font-size: 31px;text-transform: lowercase;letter-spacing: 0em">Welcome. You are logged in as ${request.responseText}</h3</div>
 							</br><hr/>
 							<button type="button" id="logout_btn" class="btn btn-default btn-sm logoutButton" onclick="invalidateSession()">
 								<span class="glyphicon glyphicon-log-out"></span> Log out
