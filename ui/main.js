@@ -207,11 +207,10 @@ function invalidateSession()
 	  {
 	      if(request.status === 200)
 	      {
-	          alert("Successfully Logged out.!");
-		       document.getElementById("login").style.display = "block"			
-		        document.getElementById("register").style.display = "block"
-    	       		document.getElementById("sessionName").style.display = "none"		        
-		        document.getElementById("logout_btn").style.display = "none"
+	          alert("Successfully Logged out.!");		      
+    	       		document.getElementById("sessionText").style.display = "none";		        
+		      document.getElementById("forms").style.display = "block";
+		      
 		        
 		        
 		  
