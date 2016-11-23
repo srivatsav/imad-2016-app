@@ -113,7 +113,30 @@
     <div id="tab1Content"> </div>
     <div id="tab2Content"> </div>
     <div id="tab3Content"> </div>
-    <div id="tab4Content"> </div>
+    <div id="tab4Content"> 
+		<div id="success-alert" style="display: none" class="alert alert-success alert-dismissable">
+    					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    					<strong>Successfully</strong> Logged In!.
+  					</div>
+		<div id="failure-alert" style="display: none"  class="alert alert-danger alert-dismissable">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+					<strong>Login Failed! </strong>Invalid credentials.
+					</div>
+		 <div id="successsignup-alert" style="display: none" class="alert alert-success alert-dismissable">
+    					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    					<strong>Successfully</strong> Registered!.
+  					</div>
+		<div id="failuresignup-alert" style="display: none"  class="alert alert-danger alert-dismissable">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+					<strong>Registration Failed! </strong>Please try again.
+					</div>
+
+
+		<div id="sessionName" style="display: none" class="loginSessionLayer"></div>
+		<button type="button" id="logout_btn" class="btn btn-default btn-sm logoutButton" style="display: none" onclick="invalidateSession()">
+			  <span class="glyphicon glyphicon-log-out"></span> Log out
+		 </button>	
+    </div>
 </section>
 
 
@@ -240,11 +263,10 @@ function checkLoginStatus()
 				      if(respText != 'false')
 				      {
 					      alert("You are already logged in as: "+ respText);
-					      var loginSessionLayerId = $(".loginSessionLayer").attr("id");
-					     	document.getElementById(loginSessionLayerId).innerHTML = '<h3>Welcome. You are logged in as '+respText+'</h3>';				    						
-						document.getElementById(loginSessionLayerId).style.display = "block"	;
-					      var logoutButtonId = $(".logoutButton").attr("id");
-						document.getElementById(logoutButtonId).style.display = "block";
+					     
+					     	document.getElementById("sessionName").innerHTML = '<h3>Welcome. You are logged in as '+respText+'</h3>';				    						
+						document.getElementById("sessionName").style.display = "block"	;					    
+						document.getElementById("logout_btn").style.display = "block";
 					      $("#tab4Content").show();
 					      
 					      
