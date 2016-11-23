@@ -153,6 +153,9 @@ app.get('/ui/tabContent.js', function (req, res) {
 app.get('/ui/clean-blog.min.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'clean-blog.min.css'));
 });
+app.get('/hover.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'hover.css'));
+});
 //using crypto library foor hashing..
 function hash(input,salt)
 {
