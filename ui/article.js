@@ -100,8 +100,7 @@ function loadComments () {
                 </div>
             </div>
         </div>
-       </div>
-</div>`;
+       </div>`;
         
      content +=`</div>`;        
                 }
