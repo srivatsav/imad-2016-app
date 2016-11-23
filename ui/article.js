@@ -100,10 +100,10 @@ function loadComments () {
                 </div>
             </div>
         </div>
-       </div>`;
-        
-     content +=`</div>`;        
+       </div>`;       
+           
                 }
+                      content +=`</div>`;  
                 comments.innerHTML = content;
             } else {
                 comments.innerHTML('Oops! Could not load comments!');
