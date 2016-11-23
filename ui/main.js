@@ -135,6 +135,7 @@ login.onclick = function(){
 							</button>	`;
 				document.getElementById("success-alert").style.display = "block";
 				document.getElementById("forms").style.display = "none"	;						
+			      document.getElementById("sessionText").style.display="block";
 			      document.getElementById("sessionText").innerHTML = sessionContent;
 				
 
@@ -207,7 +208,9 @@ function invalidateSession()
 	  {
 	      if(request.status === 200)
 	      {
-	          alert("Successfully Logged out.!");		      
+	          alert("Successfully Logged out.!");	
+		      document.getElementById("success-alert").style.display = "none";
+		      document.getElementById("successsignup-alert").style.display = "none";
     	       		document.getElementById("sessionText").style.display = "none";		        
 		      document.getElementById("forms").style.display = "block";
 		      
