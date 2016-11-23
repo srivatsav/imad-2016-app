@@ -186,6 +186,10 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+app.get('/japan-mountains.jpg', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'japan-mountains.jpg'));
+});
+
 app.get('/post/:id',function(req, res){
   res.sendFile(path.join(__dirname, 'ui', 'article.html'));
 });
