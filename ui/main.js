@@ -129,13 +129,14 @@ login.onclick = function(){
 		  {
 		      if(request.status === 200)
 		      {
+			      var sessionContent = `<div id="sessionName" class="loginSessionLayer"><h3>Welcome. You are logged in as ${request.responseText}</h3</div>
+							<button type="button" id="logout_btn" class="btn btn-default btn-sm logoutButton" onclick="invalidateSession()">
+								<span class="glyphicon glyphicon-log-out"></span> Log out
+							</button>	`;
 				document.getElementById("success-alert").style.display = "block";
-				document.getElementById("login").style.display = "none"	;		
-				document.getElementById("register").style.display = "none";
-				var sessionName = document.getElementById("sessionName");
-				sessionName.innerHTML = '<h3>Welcome. You are logged in as '+request.responseText+'</h3>';
-				document.getElementById("sessionName").style.display = "block"	;	        
-				document.getElementById("logout_btn").style.display = "block";
+				document.getElementById("forms").style.display = "none"	;						
+			      document.getElementById("sessionText").innerHTML = sessionContent;
+				
 
 
 
