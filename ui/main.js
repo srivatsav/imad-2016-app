@@ -152,7 +152,7 @@ login.onclick = function(){
 			  {
 			      if(profilerequest.status === 200)
 			      {
-				      var userDetails = JSON.parse(profilerequest.responseText);
+				      var userDetails = profilerequest.responseText;
 				      sessionContent+= `<div class="container">							    
 							    <hr>
 							  <div class="row">							     
@@ -162,20 +162,20 @@ login.onclick = function(){
 								  <div class="form-group">
 								    <label class="col-lg-3 control-label">First name:</label>
 								    <div class="col-lg-8">
-								      <h4>${userDetails[0].firstname}</h4>
+								      <h4>${userDetails.firstname}</h4>
 								    </div>
 								  </div>
 								  <div class="form-group">
 								    <label class="col-lg-3 control-label">Last name:</label>
 								    <div class="col-lg-8">
-								      <h4>${userDetails[0].lastname}</h4>
+								      <h4>${userDetails.lastname}</h4>
 								    </div>
 								  </div>
 
 								  <div class="form-group">
 								    <label class="col-lg-3 control-label">Email:</label>
 								    <div class="col-lg-8">
-								      <h4>${userDetails[0].email}</h4>
+								      <h4>${userDetails.email}</h4>
 								    </div>
 								  </div>
 								  </div>								 
