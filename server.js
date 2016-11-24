@@ -297,8 +297,7 @@ function buildArticleTemplate(data)
                 <div>${article_date.toDateString()}</div>
                 <div id="read">
                     ${content}
-                </div>
-                <small><a href="#" id="readMore" onclick="readMore()">Show Less</a></small>
+                </div>                
                 </br><button class = "btn" href="javascript:void(0)" onclick="commentHandler(${id})" id="cmnt_btn">Comment</button>
                 </br>
                 <hr/>`;
