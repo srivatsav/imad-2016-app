@@ -152,7 +152,7 @@ login.onclick = function(){
 			  {
 			      if(profilerequest.status === 200)
 			      {
-				      var userDetails = profilerequest.responseText;
+				      var userDetails = JSON.parse(profilerequest.responseText);
 				      sessionContent+= `<div class="container">							    
 							    <hr>
 							  <div class="row">							     
