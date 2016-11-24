@@ -130,7 +130,7 @@ login.onclick = function(){
 	
 	if(validateLoginForm())
 	{
-    
+    		
 		// body...
 		var request = new XMLHttpRequest();
 
@@ -142,17 +142,61 @@ login.onclick = function(){
 			      var sessionContent = `<div id="sessionName" class="loginSessionLayer">
 							<h3 style="font-weight:100;font-family: 'Montserrat',sans-serif;font-size: 31px;text-transform: lowercase;letter-spacing: 0em">Welcome. You are logged in as ${request.responseText}</h3</div>
 							</br><hr/>
-							<button type="button" id="logout_btn" class="btn btn-default btn-sm logoutButton" onclick="invalidateSession()">
+							`;		      
+				
+			var profilerequest = new XMLHttpRequest();
+			profilerequest.open('GET', '/get-userdetails/'+request.responseText,true);
+			profilerequest.send(null);
+			profilerequest.onreadystatechange = function (){
+			  if(profilerequest.readyState === XMLHttpRequest.DONE)
+			  {
+			      if(profilerequest.status === 200)
+			      {
+				      var userDetails = profilerequest.responseText;
+				      sessionContent+= `<div class="container">							    
+							    <hr>
+							  <div class="row">							     
+							      <div class="col-md-9 personal-info">								
+								<h3>Personal info</h3>
+								<form class="form-horizontal" role="form">
+								  <div class="form-group">
+								    <label class="col-lg-3 control-label">First name:</label>
+								    <div class="col-lg-8">
+								      <h4>${userDetails[0].firstname}</h4>
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="col-lg-3 control-label">Last name:</label>
+								    <div class="col-lg-8">
+								      <h4>${userDetails[0].lastname}</h4>
+								    </div>
+								  </div>
+
+								  <div class="form-group">
+								    <label class="col-lg-3 control-label">Email:</label>
+								    <div class="col-lg-8">
+								      <h4>${userDetails[0].email}</h4>
+								    </div>
+								  </div>
+								  </div>								 
+								</form>
+							      </div>
+							  </div>
+							</div>
+							<hr>
+							`;
+				     
+			      }
+			  }
+			};
+			sessionContent+=`<button type="button" id="logout_btn" class="btn btn-default btn-sm logoutButton" onclick="invalidateSession()">
 								<span class="glyphicon glyphicon-log-out"></span> Log out
-							</button>	`;
-				document.getElementById("success-alert").style.display = "block";
+							</button>`;
+			document.getElementById("success-alert").style.display = "block";
 				document.getElementById("forms").style.display = "none"	;						
 			      document.getElementById("sessionText").style.display="block";
-			      document.getElementById("sessionText").innerHTML = sessionContent;
+			      document.getElementById("sessionText").innerHTML = sessionContent;			
 				
-
-
-
 		      }
 		      else if(request.status === 403)
 		      {
