@@ -80,12 +80,12 @@ function validateSignUpForm()
 {
 	var firstName = document.getElementById("firstName").value.trim(); 
 	if(userName==''){
-		document.getElementById("signup-span").innerHTML = "*firstName cannot be empty."		
+		document.getElementById("signup-span").innerHTML = "*FirstName cannot be empty."		
 		return false;}
 	
 	var lastName = document.getElementById("lastName").value.trim(); 
 	if(userName==''){
-		document.getElementById("signup-span").innerHTML = "*lastName cannot be empty."		
+		document.getElementById("signup-span").innerHTML = "*LastName cannot be empty."		
 		return false;}
 	
 	var userName = document.getElementById("usernamesignup").value.trim();
@@ -182,10 +182,13 @@ register.onclick= function(){
 	    var request = new XMLHttpRequest();
 	    var username = document.getElementById('usernamesignup').value;
 		var password = document.getElementById('passwordsignup').value;
+		var email = document.getElementById("emailsignup").value;
+		var firstName = document.getElementById("firstName").value;
+		var lastName = document.getElementById("lastName").value;
 
 		request.open('POST', 'http://srivatsav.imad.hasura-app.io/create-user',true);
 		request.setRequestHeader('Content-Type','application/json');
-		request.send(JSON.stringify({username: username,password: password}));
+		request.send(JSON.stringify({username: username,password: password,email: email,firstName: firstName,lastName: lastName}));
 
 		request.onreadystatechange = function (){
 		  if(request.readyState === XMLHttpRequest.DONE)
