@@ -69,7 +69,17 @@ app.post('/create-user',function(req, res){
       
       if(err)
       {
-          res.status(500).send(err.toString());
+           pool.query('SELECT COUNT(username) FROM "user" WHERE username = $1',[username],function(err, result){
+               if(result.rows.length===1)
+               {
+                   res.status(403).send("Username Already Taken.");
+               }
+               else
+               {
+                   res.status(500).send(err.toString());
+               }
+           });
+          
       }
       else
       {
