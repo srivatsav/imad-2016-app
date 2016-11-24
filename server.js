@@ -313,6 +313,18 @@ app.get('/get-comments/:articleName', function (req, res) {
    });
 });
 
+app.get('/get-userdetails/:userParams', function (req, res) {
+   // make a select request
+   // return a response with the results
+   pool.query('SELECT * from "user" WHERE username = $1', [req.params.userParams], function (err, result) {
+      if (err) {
+          res.status(500).send(err.toString());
+      } else {
+          res.send(JSON.stringify(result.rows));
+      }
+   });
+});
+
 
 app.post('/submit-comment/:articleName', function (req, res) {
    // Check if the user is logged in
