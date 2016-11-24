@@ -205,6 +205,11 @@ register.onclick= function(){
 				document.getElementById("logout_btn").style.display = "block"
 
 		      }
+			  else if(request.status === 403)
+			  {
+				  document.getElementById("signup-span").innerHTML = "*Username already taken.Plese try another one."
+				
+			  }
 			   else if(request.status === 500)
 		      {
 			  document.getElementById("failuresignup-alert").style.display = "block";
