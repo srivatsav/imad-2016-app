@@ -79,12 +79,12 @@ function validateLoginForm()
 function validateSignUpForm()
 {
 	var firstName = document.getElementById("firstName").value.trim(); 
-	if(userName==''){
+	if(firstName==''){
 		document.getElementById("signup-span").innerHTML = "*FirstName cannot be empty."		
 		return false;}
 	
 	var lastName = document.getElementById("lastName").value.trim(); 
-	if(userName==''){
+	if(lastName==''){
 		document.getElementById("signup-span").innerHTML = "*LastName cannot be empty."		
 		return false;}
 	
