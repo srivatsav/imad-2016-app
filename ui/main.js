@@ -78,6 +78,16 @@ function validateLoginForm()
 }
 function validateSignUpForm()
 {
+	var firstName = document.getElementById("firstName").value.trim(); 
+	if(userName==''){
+		document.getElementById("signup-span").innerHTML = "*firstName cannot be empty."		
+		return false;}
+	
+	var lastName = document.getElementById("lastName").value.trim(); 
+	if(userName==''){
+		document.getElementById("signup-span").innerHTML = "*lastName cannot be empty."		
+		return false;}
+	
 	var userName = document.getElementById("usernamesignup").value.trim();
 	if(userName==''){
 		document.getElementById("signup-span").innerHTML = "*Username cannot be empty."		
