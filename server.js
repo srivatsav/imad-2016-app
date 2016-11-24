@@ -329,9 +329,8 @@ app.get('/get-userdetails/:userParams', function (req, res) {
    pool.query('SELECT (username,firstname,lastname,email) from "user" WHERE username = $1', [req.params.userParams], function (err, result) {
       if (err) {
           res.status(500).send(err.toString());
-      } else {
-          var result = result.rows;
-          res.send(result[0]);
+      } else {          
+          res.send(result.rows);
       }
    });
 });
