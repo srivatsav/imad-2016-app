@@ -59,10 +59,13 @@ app.post('/create-user',function(req, res){
     
    var username = req.body.username;
    var password = req.body.password;
+   var email = req.body.email;
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;
    
    var salt = crypto.randomBytes(128).toString('hex');
    var dbString = hash(password,salt); 
-   pool.query('INSERT into "user" (username,password) VALUES ($1, $2)',[username,dbString],function(err, result){
+   pool.query('INSERT into "user" (username,password,email,firstName,lastName) VALUES ($1, $2, $3, $4, $5)',[username,dbString,email,firstName,lastName],function(err, result){
       
       if(err)
       {
