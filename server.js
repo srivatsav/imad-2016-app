@@ -188,6 +188,9 @@ app.get('/animate-custom.css', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
+app.get('/ein-steig.jpg', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'ein-steig.jpg'));
+});
 
 app.get('/japan-mountains.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'japan-mountains.jpg'));
