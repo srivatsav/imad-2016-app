@@ -239,14 +239,18 @@ register.onclick= function(){
 		  {
 		      if(request.status === 200)
 		      {
-
-			    document.getElementById("successsignup-alert").style.display = "block";    			
-			     document.getElementById("login").style.display = "none"			
-				document.getElementById("register").style.display = "none"
-			       var sessionName = document.getElementById("sessionName");
-				sessionName.innerHTML = '<h3>Welcome. You are logged in as '+request.responseText+'</h3>';
-				document.getElementById("sessionName").style.display = "block"	;	    	       				        
-				document.getElementById("logout_btn").style.display = "block"
+			       var sessionContent = `<div id="sessionName" class="loginSessionLayer">
+							<h3 style="font-weight:100;font-family: 'Montserrat',sans-serif;font-size: 31px;text-transform: lowercase;letter-spacing: 0em">Welcome. You are logged in as ${request.responseText}</h3</div>
+							</br><hr/>
+							<button type="button" id="logout_btn" class="btn btn-default btn-sm logoutButton" onclick="invalidateSession()">
+								<span class="glyphicon glyphicon-log-out"></span> Log out
+							</button>
+							`;
+		
+			    document.getElementById("successsignup-alert").style.display = "block";    					     			      			
+				document.getElementById("forms").style.display = "none"	;						
+			      document.getElementById("sessionText").style.display="block";
+			      document.getElementById("sessionText").innerHTML = sessionContent;
 
 		      }
 			  else if(request.status === 403)
