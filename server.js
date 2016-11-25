@@ -256,7 +256,7 @@ app.get('/articles',function(req, res){
            else
            {
                var articleArray = result.rows;
-               var htmlTemp ='';
+               var htmlTemp ='<title>Articles</title>';
             	          
             	          for (var i=0;i<articleArray.length;i++)
             	          {
